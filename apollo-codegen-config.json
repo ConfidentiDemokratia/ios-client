@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "SnapshotSchema",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./SnapshotSchema",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "Confidate App"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

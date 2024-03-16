@@ -7,20 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85F811722BA4A16A00AA07B6 /* Confidate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811712BA4A16A00AA07B6 /* Confidate_AppApp.swift */; };
+		85F811722BA4A16A00AA07B6 /* ConfidateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */; };
 		85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811732BA4A16A00AA07B6 /* ContentView.swift */; };
 		85F811762BA4A16A00AA07B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811752BA4A16A00AA07B6 /* Item.swift */; };
 		85F811782BA4A16C00AA07B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F811772BA4A16C00AA07B6 /* Assets.xcassets */; };
 		85F8117B2BA4A16C00AA07B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F8117A2BA4A16C00AA07B6 /* Preview Assets.xcassets */; };
+		85F811852BA4A1A100AA07B6 /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811842BA4A1A100AA07B6 /* WalletService.swift */; };
+		85F811872BA4A1BF00AA07B6 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811862BA4A1BF00AA07B6 /* AuthView.swift */; };
+		85F8118A2BA4A2FB00AA07B6 /* Web3Modal in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811892BA4A2FB00AA07B6 /* Web3Modal */; };
+		85F8118C2BA4A2FB00AA07B6 /* Web3ModalUI in Frameworks */ = {isa = PBXBuildFile; productRef = 85F8118B2BA4A2FB00AA07B6 /* Web3ModalUI */; };
+		85F8118F2BA4A42B00AA07B6 /* extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8118E2BA4A42B00AA07B6 /* extra.swift */; };
+		85F811922BA4A49D00AA07B6 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811912BA4A49D00AA07B6 /* Starscream */; };
+		85F811952BA4A4CE00AA07B6 /* Web3 in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811942BA4A4CE00AA07B6 /* Web3 */; };
+		85F811972BA4A4CE00AA07B6 /* Web3ContractABI in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811962BA4A4CE00AA07B6 /* Web3ContractABI */; };
+		85F811992BA4A4CE00AA07B6 /* Web3PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811982BA4A4CE00AA07B6 /* Web3PromiseKit */; };
+		85F8119B2BA4AF9800AA07B6 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F8119A2BA4AF9800AA07B6 /* AuthViewModel.swift */; };
+		85F811A12BA4BB1900AA07B6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811A02BA4BB1900AA07B6 /* MainView.swift */; };
+		85F811A32BA4BB2300AA07B6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811A22BA4BB2300AA07B6 /* MainViewModel.swift */; };
+		85F811A52BA4BBB400AA07B6 /* DefaultSocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811A42BA4BBB400AA07B6 /* DefaultSocketFactory.swift */; };
+		85F811A92BA4C37000AA07B6 /* DaoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811A82BA4C37000AA07B6 /* DaoDetailsView.swift */; };
+		85F811AB2BA4C37C00AA07B6 /* DaoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811AA2BA4C37C00AA07B6 /* DaoDetailsViewModel.swift */; };
+		85F811AE2BA4C3B900AA07B6 /* DaoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811AD2BA4C3B900AA07B6 /* DaoItem.swift */; };
+		85F811B12BA4CB7000AA07B6 /* UINavigationController+removeBackButtonTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811B02BA4CB7000AA07B6 /* UINavigationController+removeBackButtonTitle.swift */; };
+		85F811B42BA4D84700AA07B6 /* ProposalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811B32BA4D84700AA07B6 /* ProposalView.swift */; };
+		85F811B62BA4D85100AA07B6 /* ProposalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811B52BA4D85100AA07B6 /* ProposalViewModel.swift */; };
+		85F811B82BA4D89000AA07B6 /* Proposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811B72BA4D89000AA07B6 /* Proposal.swift */; };
+		85F811BA2BA4DA1700AA07B6 /* String+mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811B92BA4DA1700AA07B6 /* String+mocks.swift */; };
+		85F811C12BA4E03100AA07B6 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811C02BA4E03100AA07B6 /* SkeletonUI */; };
+		85F811C32BA4E61F00AA07B6 /* View+skeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811C22BA4E61F00AA07B6 /* View+skeletonCell.swift */; };
+		85F811C52BA4E71C00AA07B6 /* DelegatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811C42BA4E71C00AA07B6 /* DelegatorView.swift */; };
+		85F811C72BA4E74900AA07B6 /* DelegatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811C62BA4E74900AA07B6 /* DelegatorViewModel.swift */; };
+		85F811C92BA4E86600AA07B6 /* Delegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811C82BA4E86600AA07B6 /* Delegator.swift */; };
+		85F811CD2BA4FA8000AA07B6 /* DaoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811CC2BA4FA8000AA07B6 /* DaoDetails.swift */; };
+		85F811CF2BA4FC5800AA07B6 /* SkeletonWrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811CE2BA4FC5800AA07B6 /* SkeletonWrapped.swift */; };
+		85F811D22BA518E900AA07B6 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811D12BA518E900AA07B6 /* RootTabView.swift */; };
+		85F811D52BA5202500AA07B6 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811D42BA5202500AA07B6 /* Apollo */; };
+		85F811D72BA5214000AA07B6 /* schema.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = 85F811D62BA5214000AA07B6 /* schema.graphqls */; };
+		85F811E62BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811D82BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift */; };
+		85F811E72BA5249E00AA07B6 /* Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811DB2BA5249E00AA07B6 /* Any.swift */; };
+		85F811E82BA5249E00AA07B6 /* Proposal.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811DD2BA5249E00AA07B6 /* Proposal.graphql.swift */; };
+		85F811E92BA5249E00AA07B6 /* Query.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811DE2BA5249E00AA07B6 /* Query.graphql.swift */; };
+		85F811EB2BA5249E00AA07B6 /* SchemaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811E12BA5249E00AA07B6 /* SchemaConfiguration.swift */; };
+		85F811EC2BA5249E00AA07B6 /* SchemaMetadata.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811E22BA5249E00AA07B6 /* SchemaMetadata.graphql.swift */; };
+		85F811ED2BA5249E00AA07B6 /* SnapshotSchema.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811E42BA5249E00AA07B6 /* SnapshotSchema.graphql.swift */; };
+		85F811EF2BA524C700AA07B6 /* ApolloService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811EE2BA524C700AA07B6 /* ApolloService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85F8116E2BA4A16A00AA07B6 /* Confidate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Confidate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		85F811712BA4A16A00AA07B6 /* Confidate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidate_AppApp.swift; sourceTree = "<group>"; };
+		85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidateApp.swift; sourceTree = "<group>"; };
 		85F811732BA4A16A00AA07B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		85F811752BA4A16A00AA07B6 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		85F811772BA4A16C00AA07B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85F8117A2BA4A16C00AA07B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		85F811842BA4A1A100AA07B6 /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
+		85F811862BA4A1BF00AA07B6 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		85F8118E2BA4A42B00AA07B6 /* extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extra.swift; sourceTree = "<group>"; };
+		85F8119A2BA4AF9800AA07B6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		85F8119C2BA4B43E00AA07B6 /* Confidate-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Confidate-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		85F811A02BA4BB1900AA07B6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		85F811A22BA4BB2300AA07B6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		85F811A42BA4BBB400AA07B6 /* DefaultSocketFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocketFactory.swift; sourceTree = "<group>"; };
+		85F811A82BA4C37000AA07B6 /* DaoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoDetailsView.swift; sourceTree = "<group>"; };
+		85F811AA2BA4C37C00AA07B6 /* DaoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoDetailsViewModel.swift; sourceTree = "<group>"; };
+		85F811AD2BA4C3B900AA07B6 /* DaoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoItem.swift; sourceTree = "<group>"; };
+		85F811B02BA4CB7000AA07B6 /* UINavigationController+removeBackButtonTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+removeBackButtonTitle.swift"; sourceTree = "<group>"; };
+		85F811B32BA4D84700AA07B6 /* ProposalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalView.swift; sourceTree = "<group>"; };
+		85F811B52BA4D85100AA07B6 /* ProposalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalViewModel.swift; sourceTree = "<group>"; };
+		85F811B72BA4D89000AA07B6 /* Proposal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proposal.swift; sourceTree = "<group>"; };
+		85F811B92BA4DA1700AA07B6 /* String+mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+mocks.swift"; sourceTree = "<group>"; };
+		85F811C22BA4E61F00AA07B6 /* View+skeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+skeletonCell.swift"; sourceTree = "<group>"; };
+		85F811C42BA4E71C00AA07B6 /* DelegatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatorView.swift; sourceTree = "<group>"; };
+		85F811C62BA4E74900AA07B6 /* DelegatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatorViewModel.swift; sourceTree = "<group>"; };
+		85F811C82BA4E86600AA07B6 /* Delegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegator.swift; sourceTree = "<group>"; };
+		85F811CC2BA4FA8000AA07B6 /* DaoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoDetails.swift; sourceTree = "<group>"; };
+		85F811CE2BA4FC5800AA07B6 /* SkeletonWrapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonWrapped.swift; sourceTree = "<group>"; };
+		85F811D12BA518E900AA07B6 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		85F811D62BA5214000AA07B6 /* schema.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.graphqls; sourceTree = "<group>"; };
+		85F811D82BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProposalsQuery.graphql.swift; sourceTree = "<group>"; };
+		85F811DB2BA5249E00AA07B6 /* Any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Any.swift; sourceTree = "<group>"; };
+		85F811DD2BA5249E00AA07B6 /* Proposal.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proposal.graphql.swift; sourceTree = "<group>"; };
+		85F811DE2BA5249E00AA07B6 /* Query.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.graphql.swift; sourceTree = "<group>"; };
+		85F811E12BA5249E00AA07B6 /* SchemaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaConfiguration.swift; sourceTree = "<group>"; };
+		85F811E22BA5249E00AA07B6 /* SchemaMetadata.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaMetadata.graphql.swift; sourceTree = "<group>"; };
+		85F811E42BA5249E00AA07B6 /* SnapshotSchema.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotSchema.graphql.swift; sourceTree = "<group>"; };
+		85F811EE2BA524C700AA07B6 /* ApolloService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +99,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F8118A2BA4A2FB00AA07B6 /* Web3Modal in Frameworks */,
+				85F811952BA4A4CE00AA07B6 /* Web3 in Frameworks */,
+				85F8118C2BA4A2FB00AA07B6 /* Web3ModalUI in Frameworks */,
+				85F811922BA4A49D00AA07B6 /* Starscream in Frameworks */,
+				85F811C12BA4E03100AA07B6 /* SkeletonUI in Frameworks */,
+				85F811D52BA5202500AA07B6 /* Apollo in Frameworks */,
+				85F811992BA4A4CE00AA07B6 /* Web3PromiseKit in Frameworks */,
+				85F811972BA4A4CE00AA07B6 /* Web3ContractABI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +132,15 @@
 		85F811702BA4A16A00AA07B6 /* Confidate App */ = {
 			isa = PBXGroup;
 			children = (
-				85F811712BA4A16A00AA07B6 /* Confidate_AppApp.swift */,
+				85F811E52BA5249E00AA07B6 /* SnapshotSchema */,
+				85F811D62BA5214000AA07B6 /* schema.graphqls */,
+				85F811AF2BA4CB5E00AA07B6 /* Extensions */,
+				85F811AC2BA4C3AE00AA07B6 /* Models */,
+				85F8119C2BA4B43E00AA07B6 /* Confidate-App-Info.plist */,
+				85F8118D2BA4A42500AA07B6 /* Common */,
+				85F811822BA4A18200AA07B6 /* Screens */,
+				85F811812BA4A17E00AA07B6 /* Services */,
+				85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */,
 				85F811732BA4A16A00AA07B6 /* ContentView.swift */,
 				85F811752BA4A16A00AA07B6 /* Item.swift */,
 				85F811772BA4A16C00AA07B6 /* Assets.xcassets */,
@@ -69,6 +156,158 @@
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
+		};
+		85F811812BA4A17E00AA07B6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				85F811842BA4A1A100AA07B6 /* WalletService.swift */,
+				85F811EE2BA524C700AA07B6 /* ApolloService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		85F811822BA4A18200AA07B6 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				85F811BE2BA4DEB200AA07B6 /* Delegator */,
+				85F811B22BA4D83D00AA07B6 /* Proposal */,
+				85F811A62BA4C31300AA07B6 /* DaoDetails */,
+				85F8119F2BA4BAEC00AA07B6 /* Main */,
+				85F811832BA4A19000AA07B6 /* Auth */,
+				85F811D12BA518E900AA07B6 /* RootTabView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		85F811832BA4A19000AA07B6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				85F811862BA4A1BF00AA07B6 /* AuthView.swift */,
+				85F8119A2BA4AF9800AA07B6 /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		85F8118D2BA4A42500AA07B6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				85F8118E2BA4A42B00AA07B6 /* extra.swift */,
+				85F811A42BA4BBB400AA07B6 /* DefaultSocketFactory.swift */,
+				85F811CE2BA4FC5800AA07B6 /* SkeletonWrapped.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		85F8119F2BA4BAEC00AA07B6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				85F811A02BA4BB1900AA07B6 /* MainView.swift */,
+				85F811A22BA4BB2300AA07B6 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		85F811A62BA4C31300AA07B6 /* DaoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				85F811A82BA4C37000AA07B6 /* DaoDetailsView.swift */,
+				85F811AA2BA4C37C00AA07B6 /* DaoDetailsViewModel.swift */,
+			);
+			path = DaoDetails;
+			sourceTree = "<group>";
+		};
+		85F811AC2BA4C3AE00AA07B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85F811AD2BA4C3B900AA07B6 /* DaoItem.swift */,
+				85F811B72BA4D89000AA07B6 /* Proposal.swift */,
+				85F811C82BA4E86600AA07B6 /* Delegator.swift */,
+				85F811CC2BA4FA8000AA07B6 /* DaoDetails.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85F811AF2BA4CB5E00AA07B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				85F811B02BA4CB7000AA07B6 /* UINavigationController+removeBackButtonTitle.swift */,
+				85F811B92BA4DA1700AA07B6 /* String+mocks.swift */,
+				85F811C22BA4E61F00AA07B6 /* View+skeletonCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85F811B22BA4D83D00AA07B6 /* Proposal */ = {
+			isa = PBXGroup;
+			children = (
+				85F811B32BA4D84700AA07B6 /* ProposalView.swift */,
+				85F811B52BA4D85100AA07B6 /* ProposalViewModel.swift */,
+			);
+			path = Proposal;
+			sourceTree = "<group>";
+		};
+		85F811BE2BA4DEB200AA07B6 /* Delegator */ = {
+			isa = PBXGroup;
+			children = (
+				85F811C42BA4E71C00AA07B6 /* DelegatorView.swift */,
+				85F811C62BA4E74900AA07B6 /* DelegatorViewModel.swift */,
+			);
+			path = Delegator;
+			sourceTree = "<group>";
+		};
+		85F811D92BA5249E00AA07B6 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				85F811D82BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		85F811DA2BA5249E00AA07B6 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				85F811D92BA5249E00AA07B6 /* Queries */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		85F811DC2BA5249E00AA07B6 /* CustomScalars */ = {
+			isa = PBXGroup;
+			children = (
+				85F811DB2BA5249E00AA07B6 /* Any.swift */,
+			);
+			path = CustomScalars;
+			sourceTree = "<group>";
+		};
+		85F811E02BA5249E00AA07B6 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				85F811DD2BA5249E00AA07B6 /* Proposal.graphql.swift */,
+				85F811DE2BA5249E00AA07B6 /* Query.graphql.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		85F811E32BA5249E00AA07B6 /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				85F811DC2BA5249E00AA07B6 /* CustomScalars */,
+				85F811E02BA5249E00AA07B6 /* Objects */,
+				85F811E12BA5249E00AA07B6 /* SchemaConfiguration.swift */,
+				85F811E22BA5249E00AA07B6 /* SchemaMetadata.graphql.swift */,
+			);
+			path = Schema;
+			sourceTree = "<group>";
+		};
+		85F811E52BA5249E00AA07B6 /* SnapshotSchema */ = {
+			isa = PBXGroup;
+			children = (
+				85F811DA2BA5249E00AA07B6 /* Operations */,
+				85F811E32BA5249E00AA07B6 /* Schema */,
+				85F811E42BA5249E00AA07B6 /* SnapshotSchema.graphql.swift */,
+			);
+			path = SnapshotSchema;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -86,6 +325,16 @@
 			dependencies = (
 			);
 			name = "Confidate App";
+			packageProductDependencies = (
+				85F811892BA4A2FB00AA07B6 /* Web3Modal */,
+				85F8118B2BA4A2FB00AA07B6 /* Web3ModalUI */,
+				85F811912BA4A49D00AA07B6 /* Starscream */,
+				85F811942BA4A4CE00AA07B6 /* Web3 */,
+				85F811962BA4A4CE00AA07B6 /* Web3ContractABI */,
+				85F811982BA4A4CE00AA07B6 /* Web3PromiseKit */,
+				85F811C02BA4E03100AA07B6 /* SkeletonUI */,
+				85F811D42BA5202500AA07B6 /* Apollo */,
+			);
 			productName = "Confidate App";
 			productReference = 85F8116E2BA4A16A00AA07B6 /* Confidate App.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +363,13 @@
 				Base,
 			);
 			mainGroup = 85F811652BA4A16A00AA07B6;
+			packageReferences = (
+				85F811882BA4A2FB00AA07B6 /* XCRemoteSwiftPackageReference "web3modal-swift" */,
+				85F811902BA4A49D00AA07B6 /* XCRemoteSwiftPackageReference "Starscream" */,
+				85F811932BA4A4CE00AA07B6 /* XCRemoteSwiftPackageReference "Web3" */,
+				85F811BF2BA4E03100AA07B6 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				85F811D32BA5202500AA07B6 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = 85F8116F2BA4A16A00AA07B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85F8117B2BA4A16C00AA07B6 /* Preview Assets.xcassets in Resources */,
+				85F811D72BA5214000AA07B6 /* schema.graphqls in Resources */,
 				85F811782BA4A16C00AA07B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,9 +397,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F811852BA4A1A100AA07B6 /* WalletService.swift in Sources */,
+				85F811B12BA4CB7000AA07B6 /* UINavigationController+removeBackButtonTitle.swift in Sources */,
+				85F811AE2BA4C3B900AA07B6 /* DaoItem.swift in Sources */,
+				85F811A52BA4BBB400AA07B6 /* DefaultSocketFactory.swift in Sources */,
+				85F811A32BA4BB2300AA07B6 /* MainViewModel.swift in Sources */,
+				85F811A92BA4C37000AA07B6 /* DaoDetailsView.swift in Sources */,
+				85F811EF2BA524C700AA07B6 /* ApolloService.swift in Sources */,
+				85F811ED2BA5249E00AA07B6 /* SnapshotSchema.graphql.swift in Sources */,
+				85F811EC2BA5249E00AA07B6 /* SchemaMetadata.graphql.swift in Sources */,
+				85F811872BA4A1BF00AA07B6 /* AuthView.swift in Sources */,
+				85F811D22BA518E900AA07B6 /* RootTabView.swift in Sources */,
+				85F8118F2BA4A42B00AA07B6 /* extra.swift in Sources */,
+				85F811E72BA5249E00AA07B6 /* Any.swift in Sources */,
+				85F811E82BA5249E00AA07B6 /* Proposal.graphql.swift in Sources */,
+				85F811C72BA4E74900AA07B6 /* DelegatorViewModel.swift in Sources */,
+				85F811C52BA4E71C00AA07B6 /* DelegatorView.swift in Sources */,
+				85F811BA2BA4DA1700AA07B6 /* String+mocks.swift in Sources */,
+				85F811EB2BA5249E00AA07B6 /* SchemaConfiguration.swift in Sources */,
+				85F811CF2BA4FC5800AA07B6 /* SkeletonWrapped.swift in Sources */,
+				85F811A12BA4BB1900AA07B6 /* MainView.swift in Sources */,
+				85F811CD2BA4FA8000AA07B6 /* DaoDetails.swift in Sources */,
+				85F8119B2BA4AF9800AA07B6 /* AuthViewModel.swift in Sources */,
+				85F811B42BA4D84700AA07B6 /* ProposalView.swift in Sources */,
 				85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */,
 				85F811762BA4A16A00AA07B6 /* Item.swift in Sources */,
-				85F811722BA4A16A00AA07B6 /* Confidate_AppApp.swift in Sources */,
+				85F811B82BA4D89000AA07B6 /* Proposal.swift in Sources */,
+				85F811E62BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift in Sources */,
+				85F811C92BA4E86600AA07B6 /* Delegator.swift in Sources */,
+				85F811AB2BA4C37C00AA07B6 /* DaoDetailsViewModel.swift in Sources */,
+				85F811B62BA4D85100AA07B6 /* ProposalViewModel.swift in Sources */,
+				85F811C32BA4E61F00AA07B6 /* View+skeletonCell.swift in Sources */,
+				85F811722BA4A16A00AA07B6 /* ConfidateApp.swift in Sources */,
+				85F811E92BA5249E00AA07B6 /* Query.graphql.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +560,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Confidate App/Confidate App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Confidate App/Preview Content\"";
 				DEVELOPMENT_TEAM = WAX2V9LJG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Confidate-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,12 +591,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Confidate App/Confidate App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Confidate App/Preview Content\"";
 				DEVELOPMENT_TEAM = WAX2V9LJG6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Confidate-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -348,6 +639,92 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		85F811882BA4A2FB00AA07B6 /* XCRemoteSwiftPackageReference "web3modal-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Confidate/web3modal-swift";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		85F811902BA4A49D00AA07B6 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = exactVersion;
+				version = 3.1.2;
+			};
+		};
+		85F811932BA4A4CE00AA07B6 /* XCRemoteSwiftPackageReference "Web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boilertalk/Web3.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.7;
+			};
+		};
+		85F811BF2BA4E03100AA07B6 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+		85F811D32BA5202500AA07B6 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		85F811892BA4A2FB00AA07B6 /* Web3Modal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811882BA4A2FB00AA07B6 /* XCRemoteSwiftPackageReference "web3modal-swift" */;
+			productName = Web3Modal;
+		};
+		85F8118B2BA4A2FB00AA07B6 /* Web3ModalUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811882BA4A2FB00AA07B6 /* XCRemoteSwiftPackageReference "web3modal-swift" */;
+			productName = Web3ModalUI;
+		};
+		85F811912BA4A49D00AA07B6 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811902BA4A49D00AA07B6 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		85F811942BA4A4CE00AA07B6 /* Web3 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811932BA4A4CE00AA07B6 /* XCRemoteSwiftPackageReference "Web3" */;
+			productName = Web3;
+		};
+		85F811962BA4A4CE00AA07B6 /* Web3ContractABI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811932BA4A4CE00AA07B6 /* XCRemoteSwiftPackageReference "Web3" */;
+			productName = Web3ContractABI;
+		};
+		85F811982BA4A4CE00AA07B6 /* Web3PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811932BA4A4CE00AA07B6 /* XCRemoteSwiftPackageReference "Web3" */;
+			productName = Web3PromiseKit;
+		};
+		85F811C02BA4E03100AA07B6 /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811BF2BA4E03100AA07B6 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+		85F811D42BA5202500AA07B6 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811D32BA5202500AA07B6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 85F811662BA4A16A00AA07B6 /* Project object */;
 }

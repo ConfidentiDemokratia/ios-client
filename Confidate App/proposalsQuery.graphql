@@ -1,0 +1,12 @@
+query GetProposals {
+  proposals (
+    first: 20,
+    skip: 0,
+    orderBy: "created",
+    orderDirection: desc
+  ) {
+    id
+    title
+    body
+  }
+}
