@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8551A24E2BA5C62100CA5FA9 /* ExampleLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A24D2BA5C62100CA5FA9 /* ExampleLib.swift */; };
-		8551A2522BA5D6D000CA5FA9 /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F811F92BA5BE1200AA07B6 /* Example.xcframework */; };
 		8551A2562BA5DA8A00CA5FA9 /* DelegatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2552BA5DA8A00CA5FA9 /* DelegatorService.swift */; };
 		8551A2592BA5DE7200CA5FA9 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2582BA5DE7200CA5FA9 /* AsyncButton.swift */; };
 		8551A25C2BA5DF6E00CA5FA9 /* ButtonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8551A25B2BA5DF6E00CA5FA9 /* ButtonKit */; };
@@ -18,6 +17,7 @@
 		8551A2642BA5E2D000CA5FA9 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2632BA5E2D000CA5FA9 /* vocab.txt */; };
 		8551A2662BA5E3B000CA5FA9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2652BA5E3B000CA5FA9 /* Utils.swift */; };
 		8551A2692BA5EF5D00CA5FA9 /* DaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */; };
+		8551A26A2BA612E000CA5FA9 /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F811F92BA5BE1200AA07B6 /* Example.xcframework */; };
 		85F811722BA4A16A00AA07B6 /* ConfidateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */; };
 		85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811732BA4A16A00AA07B6 /* ContentView.swift */; };
 		85F811762BA4A16A00AA07B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811752BA4A16A00AA07B6 /* Item.swift */; };
@@ -127,9 +127,9 @@
 				85F811952BA4A4CE00AA07B6 /* Web3 in Frameworks */,
 				85F8118C2BA4A2FB00AA07B6 /* Web3ModalUI in Frameworks */,
 				85F811F72BA5AE5F00AA07B6 /* MarkdownUI in Frameworks */,
-				8551A2522BA5D6D000CA5FA9 /* Example.xcframework in Frameworks */,
 				85F811922BA4A49D00AA07B6 /* Starscream in Frameworks */,
 				85F811C12BA4E03100AA07B6 /* SkeletonUI in Frameworks */,
+				8551A26A2BA612E000CA5FA9 /* Example.xcframework in Frameworks */,
 				8551A25C2BA5DF6E00CA5FA9 /* ButtonKit in Frameworks */,
 				85F811D52BA5202500AA07B6 /* Apollo in Frameworks */,
 				85F811992BA4A4CE00AA07B6 /* Web3PromiseKit in Frameworks */,

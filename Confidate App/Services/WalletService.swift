@@ -28,7 +28,7 @@ class WalletService: ObservableObject {
 
     var shortToken: String? {
         guard let token else { return nil }
-        return String(token.prefix(6))
+        return String(token.prefix(6)) + "..."
     }
 
     func logout() {

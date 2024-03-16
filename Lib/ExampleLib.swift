@@ -351,11 +351,46 @@ private struct FfiConverterData: FfiConverterRustBuffer {
     }
 }
 
-public func hashEmbedding(embedding: Data) -> Data {
+public func decrypt(prk: Data, pbk: Data, enc: Data) -> Data {
     return try! FfiConverterData.lift(
         try! rustCall {
-            uniffi_example_fn_func_hash_embedding(
-                FfiConverterData.lower(embedding), $0
+            uniffi_example_fn_func_decrypt(
+                FfiConverterData.lower(prk),
+                FfiConverterData.lower(pbk),
+                FfiConverterData.lower(enc), $0
+            )
+        }
+    )
+}
+
+public func encrypt(prk: Data, pbk: Data, message: Data) -> Data {
+    return try! FfiConverterData.lift(
+        try! rustCall {
+            uniffi_example_fn_func_encrypt(
+                FfiConverterData.lower(prk),
+                FfiConverterData.lower(pbk),
+                FfiConverterData.lower(message), $0
+            )
+        }
+    )
+}
+
+public func extGeneratePubkey(signedBytes: Data) -> Data {
+    return try! FfiConverterData.lift(
+        try! rustCall {
+            uniffi_example_fn_func_ext_generate_pubkey(
+                FfiConverterData.lower(signedBytes), $0
+            )
+        }
+    )
+}
+
+public func extSignPubkey(toSign: Data, prk: Data) -> Data {
+    return try! FfiConverterData.lift(
+        try! rustCall {
+            uniffi_example_fn_func_ext_sign_pubkey(
+                FfiConverterData.lower(toSign),
+                FfiConverterData.lower(prk), $0
             )
         }
     )
@@ -377,7 +412,16 @@ private var initializationResult: InitializationResult {
     if bindings_contract_version != scaffolding_contract_version {
         return InitializationResult.contractVersionMismatch
     }
-    if uniffi_example_checksum_func_hash_embedding() != 61529 {
+    if uniffi_example_checksum_func_decrypt() != 19162 {
+        return InitializationResult.apiChecksumMismatch
+    }
+    if uniffi_example_checksum_func_encrypt() != 60257 {
+        return InitializationResult.apiChecksumMismatch
+    }
+    if uniffi_example_checksum_func_ext_generate_pubkey() != 15164 {
+        return InitializationResult.apiChecksumMismatch
+    }
+    if uniffi_example_checksum_func_ext_sign_pubkey() != 33525 {
         return InitializationResult.apiChecksumMismatch
     }
 

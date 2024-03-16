@@ -12,16 +12,18 @@ struct AuthView: View {
     @StateObject var viewModel = AuthViewModel()
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
 
-                Web3ModalButton()
+        VStack {
+            Spacer()
 
-                Web3ModalNetworkButton()
-            }
-            .navigationTitle("Authorization")
+            Text("Authorization").font(.largeTitle)
+            Spacer()
+
+            Web3ModalButton()
+            Web3ModalNetworkButton()
+            Spacer()
         }
+
     }
 }
 

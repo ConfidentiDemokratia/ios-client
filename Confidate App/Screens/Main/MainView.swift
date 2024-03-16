@@ -15,6 +15,12 @@ struct MainView: View {
 
     var content: some View {
         List {
+            Text("List of DAOs you can vote in")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
+
             Section {
                 ForEach(viewModel.daoDetailsList, id: \.self) { data in
                     NavigationLink(value: data) {

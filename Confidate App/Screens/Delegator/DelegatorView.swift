@@ -39,7 +39,9 @@ struct DelegatorView: View {
     var body: some View {
         NavigationStack {
             List {
-                Text("Setup your delegator for Arbitrum").font(.title)
+                Text("Setup your delegator for Arbitrum")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color.clear)
 
