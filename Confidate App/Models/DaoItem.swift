@@ -10,6 +10,7 @@ import Foundation
 struct DaoItem: Identifiable, Hashable {
     var id: UUID = .init()
     let title: String
+    let description: String
     let logo: String
     let space: String
 }

@@ -39,6 +39,8 @@ class DelegatorViewModel: ObservableObject {
                 .init(title: "First questions", answers: [ "One", "Two", "33" ]),
                 .init(title: "2 questions", answers: [ "1", "Two", "3" ]),
                 .init(title: "33 questions", answers: [ "One", "2", "333" ]),
+                .init(title: "33 questions", answers: [ "One", "2", "333" ]),
+                .init(title: "33 questions", answers: [ "One", "2", "333" ]),
             ])
         }
     }

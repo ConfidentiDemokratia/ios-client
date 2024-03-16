@@ -49,8 +49,8 @@ class DaoDetailsViewModel: ObservableObject {
     }
 
     func loadDaoDetails(completion: @escaping (DaoDetails) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            completion(.init(title: self.daoItem.title ?? "", description: .longMock, space: ""))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            completion(.init(title: self.daoItem.title, description: self.daoItem.description, space: ""))
         }
     }
 

@@ -44,20 +44,23 @@ struct DelegatorView: View {
                     .listRowBackground(Color.clear)
 
                 sectionView
+
+                Spacer(minLength: 48)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
             }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    AsyncButton {
-                        try await viewModel.saveUserEmbedding()
-                    } label: {
-                        Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
-                    }
-                    .disabledWhenLoading()
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    .disabled(!viewModel.isAnswersValid)
-                    .padding(.bottom, 50)
+            .overlay(alignment: .bottom) {
+                AsyncButton {
+                    try await viewModel.saveUserEmbedding()
+                } label: {
+                    Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
                 }
+                .disabledWhenLoading()
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                .disabled(!viewModel.isAnswersValid)
+                .padding(.bottom, 8)
+                .padding(.horizontal, 14)
             }
             .navigationTitle("Delegator")
         }

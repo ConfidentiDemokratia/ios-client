@@ -7,11 +7,14 @@
 
 import SwiftUI
 import SkeletonUI
+import ButtonKit
 
 struct DaoDetailsView: View {
     @StateObject var viewModel: DaoDetailsViewModel
 
     @EnvironmentObject var walletService: WalletService
+
+    @StateObject var daoAuthService: DaoAuthService
 
     func proposalView(_ proposal: Proposal?) -> some View {
         NavigationLink(value: proposal) {
@@ -48,31 +51,21 @@ struct DaoDetailsView: View {
                 }
             }
         }
-            .opacity(proposal?.voted == true ? 0.8 : 1.0)
-            .skeletonCell(with: !viewModel.isProposalsLoaded)
+        .opacity(proposal?.voted == true ? 0.8 : 1.0)
+        .skeletonCell(with: !viewModel.isProposalsLoaded)
     }
 
-    var content: some View {
-        List {
-//            Section {
-                Text(viewModel.daoDetails?.description)
-                    .font(.title2)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.clear)
-                    .skeletonCell(with: !viewModel.isDaoDetailsLoaded, long: true)
-//            }
-//
+    var proposalListContent: some View {
+        Group {
             Section {
                 ForEach(viewModel.proposals, id: \.self) { proposal in
-//                    Section {
-                        proposalView(proposal)
-//                    }
+                    proposalView(proposal)
                 }
             } header: {
                 Text("Proposals")
                     .skeleton(with: !viewModel.isProposalsLoaded)
             }
-
+            
             if let _ = viewModel.page {
                 ProgressView()
                     .frame(maxWidth: .infinity)
@@ -85,15 +78,47 @@ struct DaoDetailsView: View {
         }
     }
 
+    var daoAuthButton: some View {
+        AsyncButton {
+            try await daoAuthService.authorize()
+        } label: {
+            Text("Authenticate").frame(maxWidth: .infinity)
+        }
+        .disabledWhenLoading()
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .padding(.bottom, 8)
+        .padding(.horizontal, 14)
+    }
+
+    var content: some View {
+        List {
+            Text(viewModel.daoDetails?.description)
+                .font(.title2)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
+                .skeletonCell(with: !viewModel.isDaoDetailsLoaded, long: true)
+
+            if daoAuthService.isAuthorized {
+                proposalListContent
+            }
+        }
+    }
+
     var body: some View {
         content
             .navigationDestination(for: Proposal.self) { proposal in
                 ProposalView(viewModel: .init(proposal: proposal))
             }
             .navigationTitle(viewModel.daoDetails?.title ?? "")
+            .overlay(alignment: .bottom) {
+                if !daoAuthService.isAuthorized {
+                    daoAuthButton
+                }
+            }
     }
 }
 
 #Preview {
-    DaoDetailsView(viewModel: .init(daoItem: .init(title: "", logo: "", space: "")))
+    DaoDetailsView(viewModel: .init(daoItem: .init(title: "", description: "", logo: "", space: "")), daoAuthService: .init())
 }

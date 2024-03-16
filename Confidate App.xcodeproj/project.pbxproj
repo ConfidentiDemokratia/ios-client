@@ -17,6 +17,7 @@
 		8551A2622BA5E27200CA5FA9 /* BertTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2612BA5E27200CA5FA9 /* BertTokenizer.swift */; };
 		8551A2642BA5E2D000CA5FA9 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2632BA5E2D000CA5FA9 /* vocab.txt */; };
 		8551A2662BA5E3B000CA5FA9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2652BA5E3B000CA5FA9 /* Utils.swift */; };
+		8551A2692BA5EF5D00CA5FA9 /* DaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */; };
 		85F811722BA4A16A00AA07B6 /* ConfidateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */; };
 		85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811732BA4A16A00AA07B6 /* ContentView.swift */; };
 		85F811762BA4A16A00AA07B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811752BA4A16A00AA07B6 /* Item.swift */; };
@@ -74,6 +75,7 @@
 		8551A2612BA5E27200CA5FA9 /* BertTokenizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BertTokenizer.swift; sourceTree = "<group>"; };
 		8551A2632BA5E2D000CA5FA9 /* vocab.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vocab.txt; sourceTree = "<group>"; };
 		8551A2652BA5E3B000CA5FA9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoAuthService.swift; sourceTree = "<group>"; };
 		85F8116E2BA4A16A00AA07B6 /* Confidate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Confidate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidateApp.swift; sourceTree = "<group>"; };
 		85F811732BA4A16A00AA07B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				8551A2552BA5DA8A00CA5FA9 /* DelegatorService.swift */,
 				8551A25F2BA5E24A00CA5FA9 /* UserEmbedder.swift */,
 				8551A2612BA5E27200CA5FA9 /* BertTokenizer.swift */,
+				8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -473,7 +476,7 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/zsh;
 			shellScript = "set -e # Helps to give error info\n\n# Project paths\nRUST_PROJ=\"/Users/coolone/projects/personal/rust/maci-crypto-rust\"\nIOS_LIB=\"/Users/coolone/projects/personal/Confidate App/Lib\"\n\nLOCAL_UDL=\"src/example.udl\"\nUDL_NAME=\"example\"\nFRAMEWORK_NAME=\"Example\"\nSWIFT_INTERFACE=\"ExampleLib\"\n\n# Binary paths\nPATH=\"$PATH:/Users/coolone/.cargo/bin\" # Adds the rust compiler\nPATH=\"$PATH:/opt/homebrew/bin\" # Adds swiftformat to the path\n\ncd \"$RUST_PROJ\"\n\n# Compile the rust\ncargo build --target aarch64-apple-ios\ncargo build --target aarch64-apple-ios-sim\ncargo build --target x86_64-apple-ios\n\n# Remove old files if they exist\nIOS_ARM64_FRAMEWORK=\"$FRAMEWORK_NAME.xcframework/ios-arm64/$FRAMEWORK_NAME.framework\"\nIOS_SIM_FRAMEWORK=\"$FRAMEWORK_NAME.xcframework/ios-arm64_x86_64-simulator/$FRAMEWORK_NAME.framework\"\n\nrm -f \"$IOS_ARM64_FRAMEWORK/$FRAMEWORK_NAME\"\nrm -f \"$IOS_ARM64_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\nrm -f \"$IOS_SIM_FRAMEWORK/$FRAMEWORK_NAME\"\nrm -f \"$IOS_SIM_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\n\nrm -f target/universal.a\nrm -f include/ios/*\n\n# Make dirs if it doesn't exist\nmkdir -p include/ios\n\n# UniFfi bindgen\ncargo run --bin uniffi-bindgen generate \"$LOCAL_UDL\" --language swift --out-dir ./include/ios\n\n# Make fat lib for sims\nlipo -create \\\n    \"target/aarch64-apple-ios-sim/debug/lib${UDL_NAME}.a\" \\\n    \"target/x86_64-apple-ios/debug/lib${UDL_NAME}.a\" \\\n    -output target/universal.a\n\n# Move binaries\ncp \"target/aarch64-apple-ios/debug/lib${UDL_NAME}.a\" \\\n    \"$IOS_ARM64_FRAMEWORK/$FRAMEWORK_NAME\"\ncp target/universal.a \\\n    \"$IOS_SIM_FRAMEWORK/$FRAMEWORK_NAME\"\n\n# Move headers\ncp \"include/ios/${UDL_NAME}FFI.h\" \\\n    \"$IOS_ARM64_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\ncp \"include/ios/${UDL_NAME}FFI.h\" \\\n    \"$IOS_SIM_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\n\n# Move swift interface\nsed \"s/${UDL_NAME}FFI/$FRAMEWORK_NAME/g\" \"include/ios/$UDL_NAME.swift\" > \"include/ios/$SWIFT_INTERFACE.swift\"\nrm -f \"$IOS_LIB/$SWIFT_INTERFACE.swift\"\ncp \"include/ios/$SWIFT_INTERFACE.swift\" \"$IOS_LIB/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -499,6 +502,7 @@
 				85F811E72BA5249E00AA07B6 /* Any.swift in Sources */,
 				85F811E82BA5249E00AA07B6 /* Proposal.graphql.swift in Sources */,
 				8551A2662BA5E3B000CA5FA9 /* Utils.swift in Sources */,
+				8551A2692BA5EF5D00CA5FA9 /* DaoAuthService.swift in Sources */,
 				85F811C72BA4E74900AA07B6 /* DelegatorViewModel.swift in Sources */,
 				8551A2602BA5E24A00CA5FA9 /* UserEmbedder.swift in Sources */,
 				85F811C52BA4E71C00AA07B6 /* DelegatorView.swift in Sources */,
