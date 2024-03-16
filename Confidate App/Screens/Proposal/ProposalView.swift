@@ -6,42 +6,48 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct ProposalView: View {
     @StateObject var viewModel: ProposalViewModel
 
     @EnvironmentObject var walletService: WalletService
 
-    @State var vote: Vote = .abstain
-
-    enum Vote: String, Hashable, CaseIterable {
-        case yes
-        case abstain
-        case no
-    }
-
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
                 Text(viewModel.proposal.title).font(.title)
-                Text(viewModel.proposal.description).font(.title3)
+                if let description = viewModel.proposal.description {
+                    Markdown(description)
+                } else {
+                    Text("No description here...").font(.title3).disabled(true)
+                }
             }
             .padding(12)
         }
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
-                Picker("", selection: $vote) {
-                    ForEach(Vote.allCases, id: \.self) {
-                        Text($0.rawValue)
+
+                Picker("", selection: $viewModel.vote) {
+                        ForEach(ProposalVote.allCases, id: \.self) {
+                            Text($0.rawValue).tag(Optional<ProposalVote>($0))
+                        }
                     }
-                }
-                .pickerStyle(.segmented)
+                    .frame(height: 32)
+                    .pickerStyle(.segmented)
+                    .scaledToFill()
+                    .padding(.horizontal, 24)
+                    .scaleEffect(CGSize(width: 1.2, height: 1.2))
+                    .disabled(!viewModel.canVote)
             }
         }
         .toolbarTitleDisplayMode(.inline)
+        .onChange(of: viewModel.vote) {
+            viewModel.selectionChanged()
+        }
     }
 }
 
 #Preview {
-    ProposalView(viewModel: .init(proposal: .init(title: "title", description: .longMock, voted: true)))
+    ProposalView(viewModel: .init(proposal: .init(title: "", description: nil, voted: false, author: "", ends: .init(), state: .active)))
 }

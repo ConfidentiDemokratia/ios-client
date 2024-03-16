@@ -15,14 +15,21 @@ struct MainView: View {
 
     var content: some View {
         List {
-//            Text("Here you can see list of your DAOs").font(.title2)
-//                .listRowInsets(EdgeInsets())
-//                .listRowBackground(Color.clear)
-
             Section {
                 ForEach(viewModel.daoDetailsList, id: \.self) { data in
-                    NavigationLink(data?.title ?? "", value: data)
-                        .skeletonCell(with: !viewModel.isDaoDetailsListLoaded)
+                    NavigationLink(value: data) {
+                        Label {
+                            Text(data?.title ?? "")
+                        } icon: {
+                            Image(data?.logo)
+                                .resizable()
+                                .frame(width: 34, height: 34)
+                                .clipShape(Circle())
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                        }
+                    }
+                    .skeletonCell(with: !viewModel.isDaoDetailsListLoaded)
                 }
             } header: {
                 Text("DAO's").skeleton(with: !viewModel.isDaoDetailsListLoaded)
@@ -36,8 +43,7 @@ struct MainView: View {
                 .navigationTitle("Hello, \(walletService.shortToken ?? "user")!")
                 .navigationDestination(for: DaoItem.self) { daoDetails in
                     DaoDetailsView(viewModel: .init(
-                        daoId: daoDetails.id, 
-                        title: daoDetails.title
+                        daoItem: daoDetails
                     ))
                 }
                 .toolbar {

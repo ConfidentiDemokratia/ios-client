@@ -1,12 +1,18 @@
-query GetProposals {
+query GetProposals($offset: Int, $limit: Int, $space: String) {
   proposals (
-    first: 20,
-    skip: 0,
+    first: $limit,
+    skip: $offset,
+    where: {
+      space_in: [$space]
+    }
     orderBy: "created",
     orderDirection: desc
   ) {
     id
     title
     body
+    state
+    author
+    end
   }
 }

@@ -50,7 +50,6 @@ struct DelegatorView: View {
 
                     } label: {
                         Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
-//                        Image(systemName: "checkmark")
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)

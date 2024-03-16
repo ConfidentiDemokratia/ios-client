@@ -34,6 +34,6 @@ import Foundation
 //
 extension Array {
     static func mock<T>() -> [T?] where Element == T? {
-        .init(repeating: nil, count: 6)
+        .init(repeating: nil, count: 30)
     }
 }

@@ -51,6 +51,8 @@
 		85F811EC2BA5249E00AA07B6 /* SchemaMetadata.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811E22BA5249E00AA07B6 /* SchemaMetadata.graphql.swift */; };
 		85F811ED2BA5249E00AA07B6 /* SnapshotSchema.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811E42BA5249E00AA07B6 /* SnapshotSchema.graphql.swift */; };
 		85F811EF2BA524C700AA07B6 /* ApolloService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811EE2BA524C700AA07B6 /* ApolloService.swift */; };
+		85F811F42BA5A9A300AA07B6 /* UISegmentedControl++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811F32BA5A9A300AA07B6 /* UISegmentedControl++.swift */; };
+		85F811F72BA5AE5F00AA07B6 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 85F811F62BA5AE5F00AA07B6 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,7 @@
 		85F811E22BA5249E00AA07B6 /* SchemaMetadata.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaMetadata.graphql.swift; sourceTree = "<group>"; };
 		85F811E42BA5249E00AA07B6 /* SnapshotSchema.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotSchema.graphql.swift; sourceTree = "<group>"; };
 		85F811EE2BA524C700AA07B6 /* ApolloService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloService.swift; sourceTree = "<group>"; };
+		85F811F32BA5A9A300AA07B6 /* UISegmentedControl++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,7 @@
 				85F8118A2BA4A2FB00AA07B6 /* Web3Modal in Frameworks */,
 				85F811952BA4A4CE00AA07B6 /* Web3 in Frameworks */,
 				85F8118C2BA4A2FB00AA07B6 /* Web3ModalUI in Frameworks */,
+				85F811F72BA5AE5F00AA07B6 /* MarkdownUI in Frameworks */,
 				85F811922BA4A49D00AA07B6 /* Starscream in Frameworks */,
 				85F811C12BA4E03100AA07B6 /* SkeletonUI in Frameworks */,
 				85F811D52BA5202500AA07B6 /* Apollo in Frameworks */,
@@ -233,6 +237,7 @@
 				85F811B02BA4CB7000AA07B6 /* UINavigationController+removeBackButtonTitle.swift */,
 				85F811B92BA4DA1700AA07B6 /* String+mocks.swift */,
 				85F811C22BA4E61F00AA07B6 /* View+skeletonCell.swift */,
+				85F811F32BA5A9A300AA07B6 /* UISegmentedControl++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 				85F811982BA4A4CE00AA07B6 /* Web3PromiseKit */,
 				85F811C02BA4E03100AA07B6 /* SkeletonUI */,
 				85F811D42BA5202500AA07B6 /* Apollo */,
+				85F811F62BA5AE5F00AA07B6 /* MarkdownUI */,
 			);
 			productName = "Confidate App";
 			productReference = 85F8116E2BA4A16A00AA07B6 /* Confidate App.app */;
@@ -369,6 +375,7 @@
 				85F811932BA4A4CE00AA07B6 /* XCRemoteSwiftPackageReference "Web3" */,
 				85F811BF2BA4E03100AA07B6 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				85F811D32BA5202500AA07B6 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				85F811F52BA5AE5F00AA07B6 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 85F8116F2BA4A16A00AA07B6 /* Products */;
 			projectDirPath = "";
@@ -419,6 +426,7 @@
 				85F811A12BA4BB1900AA07B6 /* MainView.swift in Sources */,
 				85F811CD2BA4FA8000AA07B6 /* DaoDetails.swift in Sources */,
 				85F8119B2BA4AF9800AA07B6 /* AuthViewModel.swift in Sources */,
+				85F811F42BA5A9A300AA07B6 /* UISegmentedControl++.swift in Sources */,
 				85F811B42BA4D84700AA07B6 /* ProposalView.swift in Sources */,
 				85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */,
 				85F811762BA4A16A00AA07B6 /* Item.swift in Sources */,
@@ -681,6 +689,14 @@
 				minimumVersion = 1.9.2;
 			};
 		};
+		85F811F52BA5AE5F00AA07B6 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -723,6 +739,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 85F811D32BA5202500AA07B6 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
+		};
+		85F811F62BA5AE5F00AA07B6 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85F811F52BA5AE5F00AA07B6 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

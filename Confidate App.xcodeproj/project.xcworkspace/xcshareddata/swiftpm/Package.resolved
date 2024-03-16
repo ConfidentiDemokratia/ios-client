@@ -1,5 +1,5 @@
 {
-  "originHash" : "c7ce5b0a02d5403d536142db7d9af32a4e833110233c03c9e2349e6c5d889f51",
+  "originHash" : "33bf12287d6f874c523764df73517207be8f78543da4cdc6a9c67b4c76c10ca2",
   "pins" : [
     {
       "identity" : "apollo-ios",
@@ -26,6 +26,15 @@
       "state" : {
         "revision" : "7892a123f7e8d0fe62f9f03728b17bbd4f94df5c",
         "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "networkimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/NetworkImage",
+      "state" : {
+        "revision" : "7aff8d1b31148d32c5933d75557d42f6323ee3d1",
+        "version" : "6.0.0"
       }
     },
     {
@@ -107,6 +116,15 @@
       "state" : {
         "revision" : "12358d55a3824bd5fed310b999ea8cf83a9a1a65",
         "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "swift-markdown-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/swift-markdown-ui",
+      "state" : {
+        "revision" : "ae799d015a5374708f7b4c85f3294c05f2a564e2",
+        "version" : "2.3.0"
       }
     },
     {

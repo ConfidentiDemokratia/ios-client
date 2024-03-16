@@ -15,6 +15,9 @@ struct ConfidateApp: App {
 
     init() {
         walletService.configure()
+
+        UITabBar.appearance().layer.borderWidth = 0.0
+        UITabBar.appearance().clipsToBounds = true
     }
 
     var body: some Scene {

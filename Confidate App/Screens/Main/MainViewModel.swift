@@ -28,7 +28,11 @@ class MainViewModel: ObservableObject {
     func loadDaoDetailsList(completion: @escaping ([DaoItem]) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             completion([
-                .init(title: "One")
+                .init(title: "Arbitrum", logo: "arbitrum", space: "arbitrumfoundation.eth"),
+                .init(title: "Aave", logo: "aave", space: "aave.eth"),
+                .init(title: "Nouns", logo: "nouns", space: "pnounsdao.eth"),
+                .init(title: "Optimism", logo: "optimism", space: "opcollective.eth"),
+                .init(title: "Lido", logo: "lido", space: "lido-snapshot.eth")
             ])
         }
     }

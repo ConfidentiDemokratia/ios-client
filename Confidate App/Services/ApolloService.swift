@@ -15,15 +15,28 @@ class ApolloService {
 
     private init() {}
 
-    func fetchProposals(completion: @escaping ([Proposal]) -> Void) {
-        apolloClient.fetch(query: SnapshotSchema.GetProposalsQuery()) { result in
+    static let pageSize: Int = 20
+
+    func fetchProposals(page: Int, space: String, completion: @escaping ([Proposal]) -> Void) {
+        apolloClient.fetch(query: SnapshotSchema.GetProposalsQuery(
+            offset: .init(integerLiteral: Self.pageSize * page),
+            limit: .init(integerLiteral: Self.pageSize),
+            space: .init(stringLiteral: space)
+        )) { result in
             guard let data = try? result.get().data else {
                 completion([])
                 return
             }
             
             completion(data.proposals?.compactMap { $0 }.map { proposal in
-                Proposal(title: proposal.title, description: proposal.body, voted: false)
+                Proposal(
+                    title: proposal.title,
+                    description: proposal.body, 
+                    voted: false,
+                    author: proposal.author,
+                    ends: Date(timeIntervalSince1970: TimeInterval(proposal.end)),
+                    state: proposal.state.flatMap { .init(rawValue: $0) }
+                )
             } ?? [])
         }
     }

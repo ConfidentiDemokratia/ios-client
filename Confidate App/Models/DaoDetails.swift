@@ -11,4 +11,5 @@ struct DaoDetails: Identifiable, Hashable {
     var id: UUID = .init()
     let title: String
     let description: String
+    let space: String
 }

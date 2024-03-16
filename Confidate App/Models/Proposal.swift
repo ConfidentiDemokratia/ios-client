@@ -12,4 +12,12 @@ struct Proposal: Identifiable, Hashable {
     let title: String
     let description: String?
     let voted: Bool
+    let author: String
+    let ends: Date
+    let state: ProposalState?
+}
+
+enum ProposalState: String {
+    case active
+    case closed
 }
