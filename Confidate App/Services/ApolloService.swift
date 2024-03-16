@@ -30,9 +30,10 @@ class ApolloService {
             
             completion(data.proposals?.compactMap { $0 }.map { proposal in
                 Proposal(
+                    id: proposal.id,
                     title: proposal.title,
                     description: proposal.body, 
-                    voted: false,
+                    vote: nil,
                     author: proposal.author,
                     ends: Date(timeIntervalSince1970: TimeInterval(proposal.end)),
                     state: proposal.state.flatMap { .init(rawValue: $0) }

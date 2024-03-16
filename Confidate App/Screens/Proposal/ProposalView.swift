@@ -13,6 +13,8 @@ struct ProposalView: View {
 
     @EnvironmentObject var walletService: WalletService
 
+    @Environment(\.dismiss) var dismiss
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 24) {
@@ -27,10 +29,10 @@ struct ProposalView: View {
         }
         .toolbar {
             ToolbarItem(placement: .bottomBar) {
-
-                Picker("", selection: $viewModel.vote) {
+                Picker("", selection: $viewModel.proposal.vote) {
                         ForEach(ProposalVote.allCases, id: \.self) {
-                            Text($0.rawValue).tag(Optional<ProposalVote>($0))
+                            Text($0.rawValue)
+                                .tag(Optional<ProposalVote>($0))
                         }
                     }
                     .frame(height: 32)
@@ -42,12 +44,14 @@ struct ProposalView: View {
             }
         }
         .toolbarTitleDisplayMode(.inline)
-        .onChange(of: viewModel.vote) {
-            viewModel.selectionChanged()
+        .onChange(of: viewModel.proposal.vote) {
+            viewModel.sendSelection {
+                dismiss()
+            }
         }
     }
 }
 
 #Preview {
-    ProposalView(viewModel: .init(proposal: .init(title: "", description: nil, voted: false, author: "", ends: .init(), state: .active)))
+    ProposalView(viewModel: .init(proposal: .init(id: "", title: "", description: nil, vote: nil, author: "", ends: .init(), state: .active)))
 }

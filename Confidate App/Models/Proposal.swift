@@ -8,10 +8,10 @@
 import Foundation
 
 struct Proposal: Identifiable, Hashable {
-    var id: UUID = .init()
+    let id: String
     let title: String
     let description: String?
-    let voted: Bool
+    var vote: ProposalVote?
     let author: String
     let ends: Date
     let state: ProposalState?

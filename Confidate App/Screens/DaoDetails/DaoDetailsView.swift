@@ -51,8 +51,12 @@ struct DaoDetailsView: View {
                 }
             }
         }
-        .opacity(proposal?.voted == true ? 0.8 : 1.0)
+        .opacity(proposal?.vote != nil ? 0.9 : 1.0)
         .skeletonCell(with: !viewModel.isProposalsLoaded)
+        .onAppear {
+            guard let proposal else { return }
+            viewModel.getProposalVote(proposal)
+        }
     }
 
     var proposalListContent: some View {
@@ -115,6 +119,9 @@ struct DaoDetailsView: View {
                 if !daoAuthService.isAuthorized {
                     daoAuthButton
                 }
+            }
+            .onAppear {
+                viewModel.onAppear()
             }
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SkeletonUI
+import MarkdownUI
 import ButtonKit
 
 struct DelegatorView: View {
@@ -19,25 +20,38 @@ struct DelegatorView: View {
             let seq = Array(viewModel.questions.enumerated())
             ForEach(seq, id: \.element) { questionIndex, _ in
                 let question = viewModel.questions[questionIndex]
-                let selection = Binding($viewModel.questions[questionIndex])?.answerIndex ?? .constant(0)
-                Picker(question?.title ?? "", selection: selection) {
-                    Text("Not answered").tag(Optional<Int>(nil))
+
+                Menu {
                     let answers = question.flatMap { Array($0.answers.enumerated()) } ?? []
                     ForEach(answers, id: \.element) { index, answer in
-                        Text(answer).tag(Int?.some(index))
+                        let systemImage = index == viewModel.questions[questionIndex]?.answerIndex ? "checkmark" : ""
+                        Button(answer, systemImage: systemImage) {
+                            withAnimation {
+                                viewModel.questions[questionIndex]?.answerIndex = index
+                            }
+                        }
+                    }
+                } label: {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Markdown(question?.title ?? "")
+                            .markdownTextStyle { ForegroundColor(question?.pickedAnswer == nil ? .primary : .secondary) }
+                        if let pickedAnswer = question?.pickedAnswer {
+                            Markdown(pickedAnswer)
+                        }
                     }
                 }
-                .pickerStyle(.menu)
+                .buttonStyle(PlainButtonStyle())
                 .skeletonCell(with: !viewModel.isQuestionsLoaded)
             }
-        } header: {
-            Text("Questions")
-                .skeleton(with: !viewModel.isQuestionsLoaded)
-        }
+        } 
+//    header: {
+//            Text("Questions")
+//                .skeleton(with: !viewModel.isQuestionsLoaded)
+//        }
     }
 
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             List {
                 Text("Setup your delegator for Arbitrum")
                     .font(.subheadline)
@@ -64,11 +78,17 @@ struct DelegatorView: View {
                 .padding(.bottom, 8)
                 .padding(.horizontal, 14)
             }
-            .navigationTitle("Delegator")
-        }
+            
+//        }
     }
 }
 
 #Preview {
     DelegatorView(viewModel: .init(walletService: .init()))
+}
+
+struct NoButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        return configuration.label
+    }
 }

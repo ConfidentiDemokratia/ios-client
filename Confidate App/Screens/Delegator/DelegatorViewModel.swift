@@ -34,13 +34,88 @@ class DelegatorViewModel: ObservableObject {
     }
 
     func loadQuestions(completion: @escaping ([DelegatorQuestion]) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             completion([
-                .init(title: "First questions", answers: [ "One", "Two", "33" ]),
-                .init(title: "2 questions", answers: [ "1", "Two", "3" ]),
-                .init(title: "33 questions", answers: [ "One", "2", "333" ]),
-                .init(title: "33 questions", answers: [ "One", "2", "333" ]),
-                .init(title: "33 questions", answers: [ "One", "2", "333" ]),
+                .init(
+                    title: "**Governance Philosophy**: Which foundational principle should guide Arbitrum DAO's governance?",
+                    answers: [
+                        "Empowering the broader community",
+                        "Focusing on swift and effective decision-making",
+                        "Ensuring openness in all processes"
+                    ]
+                ),
+                .init(
+                    title: "**Voting Rights Distribution**: How should Arbitrum DAO allocate voting rights?",
+                    answers: [
+                        "One member, one vote",
+                        "Votes weighted by token holding",
+                        "Votes earned by active participation"
+                    ]
+                ),
+                .init(
+                    title: "**Engagement in Governance**: How should community engagement be optimised at Arbitrum DAO?",
+                    answers: [
+                        "Facilitating widespread participation",
+                        "Utilising a selected panel for decision-making",
+                        "Offering rewards for active involvement"
+                    ]
+                ),
+                .init(
+                    title: "**Resolving Internal Conflicts**: Which conflict resolution method is best for Arbitrum DAO?",
+                    answers: [
+                        "Using a dedicated DAO committee",
+                        "Resorting to community voting",
+                        "Hiring independent arbitrators"
+                    ]
+                ),
+                .init(
+                    title: "**Priority Areas for Proposal Focus**: Where should Arbitrum DAO focus?",
+                    answers: [
+                        "Concentrating on technical foundations",
+                        "Building community and partnerships",
+                        "Developing governance frameworks and guidelines"
+                    ]
+                ),
+                .init(
+                    title: "**Adaptation to Market Changes**: How should Arbitrum DAO adapt to market dynamics?",
+                    answers: [
+                        "Quickly responding to market dynamics",
+                        "Taking measured, well-considered actions",
+                        "Following a long-term vision, despite fluctuations"
+                    ]
+                ),
+                .init(
+                    title: "**Economic Model Considerations**: What should Arbitrum DAO’s economic focus be?",
+                    answers: [
+                        "Ensuring long-term viability",
+                        "Boosting participation and transaction volume",
+                        "Maintaining equitable distribution and access"
+                    ]
+                ),
+                .init(
+                    title: "**Technological Development Focus**: What should Arbitrum DAO’s technological focus be?",
+                    answers: [
+                        "Supporting growth and efficiency",
+                        "Fortifying against threats and vulnerabilities",
+                        "Enhancing user experience and accessibility"
+                    ]
+                ),
+                .init(
+                    title: "**Funding Allocation**: How should Arbitrum DAO’s resources be allocated?",
+                    answers: [
+                        "Investing in technology and platform upgrades",
+                        "Supporting initiatives and engagement",
+                        "Expanding awareness and adoption"
+                    ]
+                ),
+                .init(
+                    title: "**Vision for Arbitrum's Future**: What should Arbitrum DAO DAO aim for?",
+                    answers: [
+                        "Aspiring to be a top Layer 2 solution",
+                        "Cultivating a strong, supportive ecosystem",
+                        "Pioneering in technology and governance"
+                    ]
+                ),
             ])
         }
     }

@@ -16,29 +16,32 @@ enum ProposalVote: String, Hashable, CaseIterable {
 
 class ProposalViewModel: ObservableObject {
 
-    let proposal: Proposal
+    @Published
+    var proposal: Proposal
 
-    @Published var vote: ProposalVote?
-    @Published var canVote = true
+    @Published var canVote = false
+
+    @Published var highlightedVote: ProposalVote?
 
     init(proposal: Proposal) {
         self.proposal = proposal
-    }
 
-    func selectionChanged() {
-        withAnimation {
-            canVote = false
-        }
-        sendSelection {
-            withAnimation {
-                self.canVote = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation { [weak self] in
+                self?.canVote = true
+                self?.highlightedVote = .yes
             }
         }
     }
 
     func sendSelection(completion: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            completion()
+        withAnimation {
+            canVote = false
+        }
+        BlockchainService.shared.setProposalVote(proposal: proposal) {
+            withAnimation {
+                self.canVote = true
+            }
         }
     }
 }

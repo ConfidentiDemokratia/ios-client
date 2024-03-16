@@ -14,10 +14,10 @@
             filePath = "Confidate App/Screens/Delegator/DelegatorViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "saveUserEmbedding()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

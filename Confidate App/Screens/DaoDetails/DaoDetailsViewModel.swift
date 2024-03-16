@@ -25,7 +25,9 @@ class DaoDetailsViewModel: ObservableObject {
 
     init(daoItem: DaoItem) {
         self.daoItem = daoItem
+    }
 
+    func onAppear() {
         loadMoreProposals()
 
         loadDaoDetails { daoDetails in
@@ -54,12 +56,21 @@ class DaoDetailsViewModel: ObservableObject {
         }
     }
 
+    func getProposalVote(_ proposal: Proposal) {
+        guard let proposalIndex = proposals.firstIndex(of: proposal) else { return }
+        BlockchainService.shared.getProposalVote(proposal: proposal) { vote in
+            withAnimation { [weak self] in
+                self?.proposals[proposalIndex]?.vote = vote
+            }
+        }
+    }
+
     func loadProposals(completion: @escaping ([Proposal]) -> Void) {
         guard let page else {
             completion([])
             return
         }
-        ApolloService.shared.fetchProposals(page: page, space: daoItem.space ?? "") { proposals in
+        ApolloService.shared.fetchProposals(page: page, space: daoItem.space) { proposals in
             completion(proposals)
             withAnimation {
                 self.page = proposals.isEmpty ? nil : page + 1

@@ -18,7 +18,7 @@ struct ContentView: View {
             ProgressView()
 
         case .some(true):
-            RootTabView()
+            MainView()
 
         case .some(false):
             AuthView()
