@@ -7,10 +7,13 @@
 
 import Foundation
 import SwiftUI
+import CoreML
 
 class DelegatorViewModel: ObservableObject {
 
     @Published var questions: [DelegatorQuestion?] = .mock()
+
+    let walletService: WalletService
 
     var isQuestionsLoaded: Bool {
         questions != .mock()
@@ -20,7 +23,9 @@ class DelegatorViewModel: ObservableObject {
         questions.allSatisfy { $0?.answerIndex != nil }
     }
 
-    init() {
+    init(walletService: WalletService) {
+        self.walletService = walletService
+
         loadQuestions { questions in
             withAnimation {
                 self.questions = questions
@@ -36,5 +41,36 @@ class DelegatorViewModel: ObservableObject {
                 .init(title: "33 questions", answers: [ "One", "2", "333" ]),
             ])
         }
+    }
+
+    func convertToArray(from mlMultiArray: MLMultiArray) -> [Double] {
+
+        // Init our output array
+        var array: [Double] = []
+
+        // Get length
+        let length = mlMultiArray.count
+
+        // Set content of multi array to our out put array
+        for i in 0...length - 1 {
+            array.append(Double(truncating: mlMultiArray[[0,NSNumber(value: i)]]))
+        }
+
+        return array
+    }
+
+    func saveUserEmbedding() async throws {
+        let data = (try UserEmbedder().embed(questions: questions.compactMap { $0 })) ?? .init()
+
+//        let testData = generateRandomBytes()
+//        let data = hashEmbedding(embedding: testData)
+
+        guard let address = walletService.shortToken else { fatalError() }
+
+        let result = try await DelegatorService.shared.saveUserEmbedding(
+            .init(address: address, user_embedding: convertToArray(from: data))
+        )
+
+        debugPrint("SUCCESS")
     }
 }

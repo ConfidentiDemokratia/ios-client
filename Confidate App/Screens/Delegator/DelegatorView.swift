@@ -7,9 +7,10 @@
 
 import SwiftUI
 import SkeletonUI
+import ButtonKit
 
 struct DelegatorView: View {
-    @StateObject var viewModel = DelegatorViewModel()
+    @StateObject var viewModel: DelegatorViewModel
 
     @EnvironmentObject var walletService: WalletService
 
@@ -46,11 +47,12 @@ struct DelegatorView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    Button {
-
+                    AsyncButton {
+                        try await viewModel.saveUserEmbedding()
                     } label: {
                         Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
                     }
+                    .disabledWhenLoading()
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .disabled(!viewModel.isAnswersValid)
@@ -63,5 +65,5 @@ struct DelegatorView: View {
 }
 
 #Preview {
-    DelegatorView(viewModel: .init())
+    DelegatorView(viewModel: .init(walletService: .init()))
 }

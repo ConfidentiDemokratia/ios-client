@@ -13,6 +13,7 @@ import Web3Modal
 struct ConfidateApp: App {
     var walletService = WalletService()
 
+
     init() {
         walletService.configure()
 
@@ -30,3 +31,17 @@ struct ConfidateApp: App {
         }
     }
 }
+
+func generateRandomBytes() -> Data {
+
+        var keyData = Data(count: 32)
+        let result = keyData.withUnsafeMutableBytes {
+            SecRandomCopyBytes(kSecRandomDefault, 32, $0.baseAddress!)
+        }
+        if result == errSecSuccess {
+            return keyData
+        } else {
+            print("Problem generating random bytes")
+            fatalError()
+        }
+    }

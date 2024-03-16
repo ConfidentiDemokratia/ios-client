@@ -1,5 +1,5 @@
 {
-  "originHash" : "33bf12287d6f874c523764df73517207be8f78543da4cdc6a9c67b4c76c10ca2",
+  "originHash" : "8c5683b79b24e564009cdeea6c50ef51d7eddf532801082c39f5574489d06535",
   "pins" : [
     {
       "identity" : "apollo-ios",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "0ed110f7555c34ff468e72e1686e59721f2b0da6",
         "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "buttonkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Dean151/ButtonKit",
+      "state" : {
+        "revision" : "ba249353c0e66bcd2f300c79df129b7ad75a5251",
+        "version" : "0.2.1"
       }
     },
     {

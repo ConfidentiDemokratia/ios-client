@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RootTabView: View {
+    @EnvironmentObject var walletService: WalletService
+
     var body: some View {
         TabView {
             MainView()
@@ -15,7 +17,7 @@ struct RootTabView: View {
                     Label("Main", systemImage: "list.dash")
                 }
 
-            DelegatorView()
+            DelegatorView(viewModel: .init(walletService: walletService))
                 .tabItem {
                     Label("Delegator", systemImage: "person.icloud")
                 }
