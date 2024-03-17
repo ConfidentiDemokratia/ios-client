@@ -38,7 +38,7 @@ class ProposalViewModel: ObservableObject {
             }
         }
 
-        getProposalVote(proposal)
+//        getProposalVote(proposal)
     }
 
     func getProposalVote(_ proposal: Proposal) {

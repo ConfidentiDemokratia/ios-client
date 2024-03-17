@@ -15,7 +15,7 @@ struct RootTabView: View {
     var title: String {
         switch selection {
         case .proposals:
-            return "Proposals"
+            return "\(daoItem.title) Proposals"
         case .delegator:
             return "Delegator"
         }

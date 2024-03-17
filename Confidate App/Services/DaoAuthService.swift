@@ -24,7 +24,7 @@ class DaoAuthService: ObservableObject {
 
     @MainActor
     func authorize() async throws {
-        let signed = try await walletService.requestWalletSign(message: "MACI")
+        let signed = try await walletService.requestWalletSign(message: "Arbitrum-MACI")
 
         let mergedKey = extGenerateKeys(signedBytes: signed)
 

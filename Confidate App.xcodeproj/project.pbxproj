@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60E2D2432BA6C553008C953A /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E2D2422BA6C553008C953A /* Example.xcframework */; };
+		60E2D2472BA6C79F008C953A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E2D2462BA6C79F008C953A /* Keys.swift */; };
 		8551A24E2BA5C62100CA5FA9 /* ExampleLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A24D2BA5C62100CA5FA9 /* ExampleLib.swift */; };
 		8551A2562BA5DA8A00CA5FA9 /* DelegatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2552BA5DA8A00CA5FA9 /* DelegatorService.swift */; };
 		8551A2592BA5DE7200CA5FA9 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2582BA5DE7200CA5FA9 /* AsyncButton.swift */; };
@@ -17,12 +19,10 @@
 		8551A2642BA5E2D000CA5FA9 /* vocab.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2632BA5E2D000CA5FA9 /* vocab.txt */; };
 		8551A2662BA5E3B000CA5FA9 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2652BA5E3B000CA5FA9 /* Utils.swift */; };
 		8551A2692BA5EF5D00CA5FA9 /* DaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */; };
-		8551A26A2BA612E000CA5FA9 /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F811F92BA5BE1200AA07B6 /* Example.xcframework */; };
 		8551A26E2BA61E9800CA5FA9 /* BlockchainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A26D2BA61E9800CA5FA9 /* BlockchainService.swift */; };
 		8551A2702BA6556C00CA5FA9 /* hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A26F2BA6556C00CA5FA9 /* hexString.swift */; };
 		8551A2722BA65AAC00CA5FA9 /* maciABI.json in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2712BA65AAC00CA5FA9 /* maciABI.json */; };
 		8551A2742BA6695500CA5FA9 /* pollABI.json in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2732BA6695500CA5FA9 /* pollABI.json */; };
-		8551A2762BA6829600CA5FA9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2752BA6829600CA5FA9 /* Keys.swift */; };
 		85F811722BA4A16A00AA07B6 /* ConfidateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */; };
 		85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811732BA4A16A00AA07B6 /* ContentView.swift */; };
 		85F811762BA4A16A00AA07B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811752BA4A16A00AA07B6 /* Item.swift */; };
@@ -72,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60E2D2422BA6C553008C953A /* Example.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Example.xcframework; path = "../maci-crypto-rust/Example.xcframework"; sourceTree = "<group>"; };
+		60E2D2462BA6C79F008C953A /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		8551A24D2BA5C62100CA5FA9 /* ExampleLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleLib.swift; sourceTree = "<group>"; };
 		8551A2552BA5DA8A00CA5FA9 /* DelegatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatorService.swift; sourceTree = "<group>"; };
 		8551A2582BA5DE7200CA5FA9 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -85,7 +87,6 @@
 		8551A26F2BA6556C00CA5FA9 /* hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexString.swift; sourceTree = "<group>"; };
 		8551A2712BA65AAC00CA5FA9 /* maciABI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maciABI.json; sourceTree = "<group>"; };
 		8551A2732BA6695500CA5FA9 /* pollABI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pollABI.json; sourceTree = "<group>"; };
-		8551A2752BA6829600CA5FA9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		85F8116E2BA4A16A00AA07B6 /* Confidate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Confidate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidateApp.swift; sourceTree = "<group>"; };
 		85F811732BA4A16A00AA07B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,7 +140,7 @@
 				85F811F72BA5AE5F00AA07B6 /* MarkdownUI in Frameworks */,
 				85F811922BA4A49D00AA07B6 /* Starscream in Frameworks */,
 				85F811C12BA4E03100AA07B6 /* SkeletonUI in Frameworks */,
-				8551A26A2BA612E000CA5FA9 /* Example.xcframework in Frameworks */,
+				60E2D2432BA6C553008C953A /* Example.xcframework in Frameworks */,
 				8551A25C2BA5DF6E00CA5FA9 /* ButtonKit in Frameworks */,
 				85F811D52BA5202500AA07B6 /* Apollo in Frameworks */,
 				85F811992BA4A4CE00AA07B6 /* Web3PromiseKit in Frameworks */,
@@ -161,7 +162,7 @@
 		85F811652BA4A16A00AA07B6 = {
 			isa = PBXGroup;
 			children = (
-				8551A2752BA6829600CA5FA9 /* Keys.swift */,
+				60E2D2462BA6C79F008C953A /* Keys.swift */,
 				8551A25D2BA5E23800CA5FA9 /* BERTEmbedder.mlmodel */,
 				85F811FD2BA5BE2F00AA07B6 /* Lib */,
 				85F811702BA4A16A00AA07B6 /* Confidate App */,
@@ -373,6 +374,7 @@
 		85F811F82BA5BE1200AA07B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60E2D2422BA6C553008C953A /* Example.xcframework */,
 				85F811F92BA5BE1200AA07B6 /* Example.xcframework */,
 			);
 			name = Frameworks;
@@ -494,7 +496,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "set -e # Helps to give error info\n\n# Project paths\nRUST_PROJ=\"/Users/coolone/projects/personal/rust/maci-crypto-rust\"\nIOS_LIB=\"/Users/coolone/projects/personal/Confidate App/Lib\"\n\nLOCAL_UDL=\"src/example.udl\"\nUDL_NAME=\"example\"\nFRAMEWORK_NAME=\"Example\"\nSWIFT_INTERFACE=\"ExampleLib\"\n\n# Binary paths\nPATH=\"$PATH:/Users/coolone/.cargo/bin\" # Adds the rust compiler\nPATH=\"$PATH:/opt/homebrew/bin\" # Adds swiftformat to the path\n\ncd \"$RUST_PROJ\"\n\n# Compile the rust\ncargo build --target aarch64-apple-ios\ncargo build --target aarch64-apple-ios-sim\ncargo build --target x86_64-apple-ios\n\n# Remove old files if they exist\nIOS_ARM64_FRAMEWORK=\"$FRAMEWORK_NAME.xcframework/ios-arm64/$FRAMEWORK_NAME.framework\"\nIOS_SIM_FRAMEWORK=\"$FRAMEWORK_NAME.xcframework/ios-arm64_x86_64-simulator/$FRAMEWORK_NAME.framework\"\n\nrm -f \"$IOS_ARM64_FRAMEWORK/$FRAMEWORK_NAME\"\nrm -f \"$IOS_ARM64_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\nrm -f \"$IOS_SIM_FRAMEWORK/$FRAMEWORK_NAME\"\nrm -f \"$IOS_SIM_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\n\nrm -f target/universal.a\nrm -rf include/ios || true\n\n# Make dirs if it doesn't exist\nmkdir -p include/ios\n\n# UniFfi bindgen\ncargo run --bin uniffi-bindgen generate \"$LOCAL_UDL\" --language swift --out-dir ./include/ios\n\n# Make fat lib for sims\nlipo -create \\\n    \"target/aarch64-apple-ios-sim/debug/lib${UDL_NAME}.a\" \\\n    \"target/x86_64-apple-ios/debug/lib${UDL_NAME}.a\" \\\n    -output target/universal.a\n\n# Move binaries\ncp \"target/aarch64-apple-ios/debug/lib${UDL_NAME}.a\" \\\n    \"$IOS_ARM64_FRAMEWORK/$FRAMEWORK_NAME\"\ncp target/universal.a \\\n    \"$IOS_SIM_FRAMEWORK/$FRAMEWORK_NAME\"\n\n# Move headers\ncp \"include/ios/${UDL_NAME}FFI.h\" \\\n    \"$IOS_ARM64_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\ncp \"include/ios/${UDL_NAME}FFI.h\" \\\n    \"$IOS_SIM_FRAMEWORK/Headers/${UDL_NAME}FFI.h\"\n\n# Move swift interface\nsed \"s/${UDL_NAME}FFI/$FRAMEWORK_NAME/g\" \"include/ios/$UDL_NAME.swift\" > \"include/ios/$SWIFT_INTERFACE.swift\"\nrm -f \"$IOS_LIB/$SWIFT_INTERFACE.swift\"\ncp \"include/ios/$SWIFT_INTERFACE.swift\" \"$IOS_LIB/\"\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -537,7 +540,7 @@
 				85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */,
 				85F811762BA4A16A00AA07B6 /* Item.swift in Sources */,
 				85F811B82BA4D89000AA07B6 /* Proposal.swift in Sources */,
-				8551A2762BA6829600CA5FA9 /* Keys.swift in Sources */,
+				60E2D2472BA6C79F008C953A /* Keys.swift in Sources */,
 				8551A25E2BA5E23800CA5FA9 /* BERTEmbedder.mlmodel in Sources */,
 				85F811E62BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift in Sources */,
 				85F811C92BA4E86600AA07B6 /* Delegator.swift in Sources */,
@@ -699,9 +702,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.confidate.Confidate-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -731,9 +738,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.confidate.Confidate-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
