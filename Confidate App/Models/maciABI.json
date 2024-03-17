@@ -46,64 +46,6 @@
       "type": "constructor"
     },
     {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "_caller",
-          "type": "address"
-        }
-      ],
-      "name": "CallerMustBePoll",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidMessage",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "MaciPubKeyLargerThanSnarkFieldSize",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "pollId",
-          "type": "uint256"
-        }
-      ],
-      "name": "PollDoesNotExist",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "PoseidonHashLibrariesNotLinked",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "pollId",
-          "type": "uint256"
-        }
-      ],
-      "name": "PreviousPollNotCompleted",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "SignupTemporaryBlocked",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "TooManySignups",
-      "type": "error"
-    },
-    {
       "anonymous": false,
       "inputs": [
         {

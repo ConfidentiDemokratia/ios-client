@@ -28,7 +28,9 @@ class ProposalViewModel: ObservableObject {
     init(proposal: Proposal, blockchainService: BlockchainService) {
         self.proposal = proposal
         self.blockchainService = blockchainService
+    }
 
+    func onAppear() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation { [weak self] in
                 self?.canVote = true

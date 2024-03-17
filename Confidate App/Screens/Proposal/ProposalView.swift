@@ -49,6 +49,9 @@ struct ProposalView: View {
                 dismiss()
             }
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
 }
 

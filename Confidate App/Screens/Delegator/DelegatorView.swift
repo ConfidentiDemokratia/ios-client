@@ -65,15 +65,36 @@ struct DelegatorView: View {
                 .listRowBackground(Color.clear)
         }
         .overlay(alignment: .bottom) {
-            AsyncButton {
-                try await viewModel.saveUserEmbedding()
-            } label: {
-                Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
+            Group {
+                if viewModel.isAnswersValid {
+                    if viewModel.isDataChanged {
+                        AsyncButton {
+                            try await viewModel.saveUserEmbedding()
+                        } label: {
+                            Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
+                        }
+                        .disabledWhenLoading()
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
+                    }
+                } else {
+                    AsyncButton { @MainActor in
+                        try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+                        withAnimation {
+                            viewModel.isDataChanged = true
+                            for index in viewModel.questions.indices {
+                                viewModel.questions[index]?.answerIndex = viewModel.questions[index]?.answers.indices.randomElement()
+                            }
+                        }
+                    } label: {
+                        Label("Autofill", systemImage: "wand.and.stars").frame(maxWidth: .infinity)
+                    }
+                    .disabledWhenLoading()
+                    .tint(.indigo)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                }
             }
-            .disabledWhenLoading()
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
-            .disabled(!viewModel.isAnswersValid)
             .padding(.bottom, 8)
             .padding(.horizontal, 14)
         }

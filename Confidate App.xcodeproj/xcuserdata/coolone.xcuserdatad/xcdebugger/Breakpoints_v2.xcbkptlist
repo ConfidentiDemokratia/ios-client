@@ -7,16 +7,172 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BF96F0C8-E5AF-4CEB-A898-6C9A3AEE001A"
+            uuid = "C7B55E54-49BE-4C35-A62F-959B7479A7F7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Confidate App/Screens/Delegator/DelegatorViewModel.swift"
+            filePath = "Confidate App/Services/BlockchainService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "saveUserEmbedding()"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "getProposalVote(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F5C461A-2BDE-4E4E-92B6-7284D52316A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidate App/Services/BlockchainService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getProposalVote(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2F5C461A-2BDE-4E4E-92B6-7284D52316A1 - 63f2555c4c5d6d7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Web3.EthereumAddress) throws -&gt; PromiseKit.Promise&lt;(BigInt.BigUInt, BigInt.BigUInt)&gt; in closure #1 () -&gt; PromiseKit.Promise&lt;(BigInt.BigUInt, BigInt.BigUInt)&gt; in Confidate_App.BlockchainService.getProposalVote(completion: (Confidate_App.ProposalVote) -&gt; ()) -&gt; ()"
+                  moduleName = "Confidate App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coolone/projects/personal/Confidate%20App/Confidate%20App/Services/BlockchainService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95">
+               </Location>
+               <Location
+                  uuid = "2F5C461A-2BDE-4E4E-92B6-7284D52316A1 - 63f2555c4c5d6d7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Web3.EthereumAddress) throws -&gt; PromiseKit.Promise&lt;(BigInt.BigUInt, BigInt.BigUInt)&gt; in closure #1 () -&gt; PromiseKit.Promise&lt;(BigInt.BigUInt, BigInt.BigUInt)&gt; in Confidate_App.BlockchainService.getProposalVote(completion: (Confidate_App.ProposalVote) -&gt; ()) -&gt; ()"
+                  moduleName = "Confidate App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coolone/projects/personal/Confidate%20App/Confidate%20App/Services/BlockchainService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9DFD2E1F-0A01-4EAE-ADCA-2C12162C15D1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidate App/Services/BlockchainService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "getProposalVote(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0D4D7D45-52F5-4D92-9813-7C34F6BBB5E2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidate App/Services/BlockchainService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getProposalVote(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC4B5AE3-3DC9-4BA5-96DF-8085583D70D2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidate App/Services/BlockchainService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getProposalVote(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E75F7AA6-6673-4B7B-8D9A-38ECDD4B2D3E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidate App/Services/BlockchainService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "getProposalVote(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E75F7AA6-6673-4B7B-8D9A-38ECDD4B2D3E - 668ffaacd0cc585"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (BigInt.BigUInt, BigInt.BigUInt) throws -&gt; () in Confidate_App.BlockchainService.getProposalVote(completion: (Confidate_App.ProposalVote) -&gt; ()) -&gt; ()"
+                  moduleName = "Confidate App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coolone/projects/personal/Confidate%20App/Confidate%20App/Services/BlockchainService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132">
+               </Location>
+               <Location
+                  uuid = "E75F7AA6-6673-4B7B-8D9A-38ECDD4B2D3E - 668ffaacd0cc585"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (BigInt.BigUInt, BigInt.BigUInt) throws -&gt; () in Confidate_App.BlockchainService.getProposalVote(completion: (Confidate_App.ProposalVote) -&gt; ()) -&gt; ()"
+                  moduleName = "Confidate App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coolone/projects/personal/Confidate%20App/Confidate%20App/Services/BlockchainService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5668CA3E-DC77-4D68-ADD5-038ACC96ACDB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Confidate App/Services/BlockchainService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "getProposalVote(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

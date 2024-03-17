@@ -13,31 +13,11 @@ import Web3Modal
 struct ConfidateApp: App {
     var walletService = WalletService()
 
-//    let service = try! BlockchainService(daoAddress: "")
-
     init() {
         walletService.configure()
 
         UITabBar.appearance().layer.borderWidth = 0.0
         UITabBar.appearance().clipsToBounds = true
-
-
-//        guard let proposalIndex = proposals.firstIndex(of: proposal) else { return }
-//        service.getProposalVote { vote in
-//            debugPrint("boo")
-//        }
-
-//        let key = extGeneratePubkey(signedBytes: generateRandomBytes(count: 64))
-//
-//        let sign = extSignPubkey(toSign: generateRandomBytes(), prk: generateRandomBytes())
-
-//        let prk = generateRandomBytes(count: 32)
-//        let pbk = generateRandomBytes(count: 64)
-//        let expected = Data.init(repeating: 1, count: 64)
-//        let encrypted = encrypt(prk: prk, pbk: pbk, message: expected)
-//        let actual = decrypt(prk: prk, pbk: pbk, enc: encrypted)
-
-        
     }
 
     var body: some Scene {

@@ -23,6 +23,9 @@ class DelegatorViewModel: ObservableObject {
         questions.allSatisfy { $0?.answerIndex != nil }
     }
 
+    @Published
+    var isDataChanged = false
+
     let daoItem: DaoItem
 
     func insertDaos(into string: String) -> String {
@@ -152,6 +155,8 @@ class DelegatorViewModel: ObservableObject {
     }
 
     func saveUserEmbedding() async throws {
+        try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+
         let data = (try UserEmbedder().embed(questions: questions.compactMap { $0 })) ?? .init()
 
 //        let testData = generateRandomBytes()
@@ -159,10 +164,12 @@ class DelegatorViewModel: ObservableObject {
 
         guard let address = walletService.shortToken else { fatalError() }
 
-        let result = try await DelegatorService.shared.saveUserEmbedding(
-            .init(address: address, user_embedding: convertToArray(from: data))
-        )
+//        let _ = try await DelegatorService.shared.saveUserEmbedding(
+//            .init(address: address, user_embedding: convertToArray(from: data))
+//        )
 
-        debugPrint("SUCCESS")
+        withAnimation {
+            isDataChanged = false
+        }
     }
 }

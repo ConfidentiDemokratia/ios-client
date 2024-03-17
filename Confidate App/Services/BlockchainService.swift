@@ -23,10 +23,10 @@ class BlockchainService {
     let daoAuthService: DaoAuthService
 
     init(
-        daoAddress: String? = nil,
+        daoAddress: String,
         daoAuthService: DaoAuthService
     ) throws {
-        self.daoAddress = try EthereumAddress(hex: daoAddress ?? daoAddressStr, eip55: true)
+        self.daoAddress = try EthereumAddress(hex: daoAddress, eip55: true)
         self.daoAuthService = daoAuthService
     }
 
@@ -47,19 +47,18 @@ class BlockchainService {
     ) throws -> DynamicContract {
         print("Loading ABI...")
 
-        guard let abiData = loadABI(named: "maciABI") else {
+        guard let abiData = loadABI(named: name) else {
             fatalError("Failed to initialize the contract")
         }
 
         print("Loaded ABI")
 
         // Decode the ABI data into an array of ABIObject
-        let abi = try JSONDecoder().decode([ABIObject].self, from: abiData)
+        let abi = try JSONDecoder().decode([ABIObject?].self, from: abiData)
 
         // Initialize the DynamicContract with the ABI and address
-        return DynamicContract(abi: abi, address: contractAddress, eth: Self.web3.eth)
+        return DynamicContract(abi: abi.compactMap { $0 }, address: contractAddress, eth: Self.web3.eth)
     }
-    
 
     func getProposalVote(
         completion: @escaping (ProposalVote) -> Void
@@ -67,64 +66,66 @@ class BlockchainService {
         do {
             let contract = try getContract(contractAddress: daoAddress, name: "maciABI")
 
+            guard let getNextPollIdMethod = contract["nextPollId"] else {
+                fatalError("Failed to get the method for the getPollsMethod")
+            }
+
             firstly {
-                guard let getNextPollIdMethod = contract["nextPollId"] else {
-                    fatalError("Failed to get the method for the getPollsMethod")
-                }
-
-                guard let getPubkeyMethod = contract["coordinatorPubkey"] else {
-                    fatalError("Failed to get the method for the get delegatorVotes")
-                }
-
-                return when(fulfilled:
-                    getNextPollIdMethod().call()
-                        .compactMap { values in
-                            if let pollId = values[""] as? BigUInt {
-                                return pollId - BigUInt(1)
-                            }
-                            return nil
+                getNextPollIdMethod().call()
+                    .compactMap { values in
+                        if let pollId = values[""] as? BigUInt {
+                            return pollId // TODO: - BigUInt(1) handle 0
                         }
-                        .then { (pollId: BigUInt) -> Promise<[String: Any]> in
-                            guard let getPollMethod = contract["polls"] else {
-                                fatalError("Failed to get the method for the getPoll")
-                            }
+                        return nil
+                    }
+                    .then { (pollId: BigUInt) -> Promise<[String: Any]> in
+                        guard let getPollMethod = contract["polls"] else {
+                            fatalError("Failed to get the method for the getPoll")
+                        }
 
-                            return getPollMethod((pollId)).call()
+                        return getPollMethod((pollId)).call()
+                    }
+                    .compactMap { values in
+                        if let address = values[""] as? EthereumAddress {
+                            return address
                         }
-                        .compactMap { values in
-                            if let address = values[""] as? EthereumAddress {
-                                return address
-                            }
-                            return nil
-                        }
-                        .then { (pollAddress: EthereumAddress) -> Promise<[String: Any]> in
-                            let contract = try self.getContract(contractAddress: pollAddress, name: "pollABI")
+                        return nil
+                    }
+                    .then { (pollAddress: EthereumAddress) -> Promise<Promise<(BigUInt, BigUInt)>.T> in
+                        let contract = try self.getContract(contractAddress: pollAddress, name: "pollABI")
 
-                            guard let getDelegatorVotesMethod = contract["delegatorVotes"] else {
-                                fatalError("Failed to get the method for the get delegatorVotes")
-                            }
+                        guard let getDelegatorVotesMethod = contract["delegatorVotes"] else {
+                            fatalError("Failed to get the method for the get delegatorVotes")
+                        }
 
-                            return getDelegatorVotesMethod(Self.wallletPrivateKey.address).call()
+                        guard let getPubkeyMethod = contract["coordinatorPubKey"] else {
+                            fatalError("Failed to get the method for the get delegatorVotes")
                         }
-                        .compactMap { values -> BigUInt? in
-                            if let address = values["encVote"] as? BigUInt, // TODO: convert to BigUInt[2]
-                                let hasPersonallyVoted = values["hasPersonallyVoted"] as? BigUInt {
-                                if hasPersonallyVoted == .init(0) {
-                                    return nil
-                                } else {
-                                    return address
-                                }
-                            }
-                            return nil
-                        },
-                    getPubkeyMethod().call()
-                        .compactMap { values -> BigUInt? in
-                            if let pubKey = values[""] as? BigUInt {
-                                return pubKey
-                            }
-                            return nil
+
+                        return firstly {
+                            when(
+                                fulfilled: getDelegatorVotesMethod(Self.wallletPrivateKey.address).call()
+                                    .compactMap { (values) -> BigUInt? in
+                                        if let address = values["encVote"] as? BigUInt, // TODO: convert to BigUInt[2]
+                                            let hasPersonallyVoted = values["hasPersonallyVoted"] as? BigUInt {
+                                            if hasPersonallyVoted == .init(0) {
+                                                return nil
+                                            } else {
+                                                return address
+                                            }
+                                        }
+                                        return nil
+                                    },
+                                getPubkeyMethod().call()
+                                    .compactMap { values -> BigUInt? in
+                                        if let pubKey = values[""] as? BigUInt {
+                                            return pubKey
+                                        }
+                                        return nil
+                                    }
+                            )
                         }
-                )
+                    }
             }
             .done { [weak self] (address: BigUInt, pbk: BigUInt) in
 
