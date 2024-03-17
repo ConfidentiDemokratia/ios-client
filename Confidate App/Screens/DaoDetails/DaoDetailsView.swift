@@ -53,10 +53,6 @@ struct DaoDetailsView: View {
         }
         .opacity(proposal?.vote != nil ? 0.9 : 1.0)
         .skeletonCell(with: !viewModel.isProposalsLoaded)
-        .onAppear {
-            guard let proposal else { return }
-            viewModel.getProposalVote(proposal)
-        }
     }
 
     var proposalListContent: some View {
@@ -85,6 +81,7 @@ struct DaoDetailsView: View {
     var daoAuthButton: some View {
         AsyncButton {
             try await daoAuthService.authorize()
+            viewModel.onAuthorize()
         } label: {
             Text("Authenticate").frame(maxWidth: .infinity)
         }
@@ -112,7 +109,7 @@ struct DaoDetailsView: View {
     var body: some View {
         content
             .navigationDestination(for: Proposal.self) { proposal in
-                ProposalView(viewModel: .init(proposal: proposal))
+                ProposalView(viewModel: .init(proposal: proposal, blockchainService: viewModel.blockchainService))
             }
             .navigationTitle(viewModel.daoDetails?.title ?? "")
             .overlay(alignment: .bottom) {
@@ -126,6 +123,6 @@ struct DaoDetailsView: View {
     }
 }
 
-#Preview {
-    DaoDetailsView(viewModel: .init(daoItem: .init(title: "", description: "", logo: "", space: "")), daoAuthService: .init())
-}
+//#Preview {
+//    DaoDetailsView(viewModel: .init(daoItem: .init(title: "", description: "", logo: "", space: "")), daoAuthService: .init(walletService: .init()))
+//}

@@ -23,11 +23,26 @@ class DelegatorViewModel: ObservableObject {
         questions.allSatisfy { $0?.answerIndex != nil }
     }
 
-    init(walletService: WalletService) {
+    let daoItem: DaoItem
+
+    func insertDaos(into string: String) -> String {
+        string.replacingOccurrences(of: "$DAO_NAME", with: daoItem.title)
+    }
+
+    init(walletService: WalletService, daoItem: DaoItem) {
         self.walletService = walletService
+        self.daoItem = daoItem
 
         loadQuestions { questions in
-            withAnimation {
+            withAnimation { [weak self] in
+                guard let self else { return }
+                var questions = questions
+
+                for questionIndex in questions.indices {
+                    questions[questionIndex].title = insertDaos(into: questions[questionIndex].title)
+                    questions[questionIndex].answers = questions[questionIndex].answers.map { self.insertDaos(into: $0) }
+                }
+
                 self.questions = questions
             }
         }
@@ -37,7 +52,7 @@ class DelegatorViewModel: ObservableObject {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             completion([
                 .init(
-                    title: "**Governance Philosophy**: Which foundational principle should guide Arbitrum DAO's governance?",
+                    title: "**Governance Philosophy**: Which foundational principle should guide $DAO_NAME DAO's governance?",
                     answers: [
                         "Empowering the broader community",
                         "Focusing on swift and effective decision-making",
@@ -45,7 +60,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Voting Rights Distribution**: How should Arbitrum DAO allocate voting rights?",
+                    title: "**Voting Rights Distribution**: How should $DAO_NAME DAO allocate voting rights?",
                     answers: [
                         "One member, one vote",
                         "Votes weighted by token holding",
@@ -53,7 +68,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Engagement in Governance**: How should community engagement be optimised at Arbitrum DAO?",
+                    title: "**Engagement in Governance**: How should community engagement be optimised at $DAO_NAME DAO?",
                     answers: [
                         "Facilitating widespread participation",
                         "Utilising a selected panel for decision-making",
@@ -61,7 +76,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Resolving Internal Conflicts**: Which conflict resolution method is best for Arbitrum DAO?",
+                    title: "**Resolving Internal Conflicts**: Which conflict resolution method is best for $DAO_NAME DAO?",
                     answers: [
                         "Using a dedicated DAO committee",
                         "Resorting to community voting",
@@ -69,7 +84,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Priority Areas for Proposal Focus**: Where should Arbitrum DAO focus?",
+                    title: "**Priority Areas for Proposal Focus**: Where should $DAO_NAME DAO focus?",
                     answers: [
                         "Concentrating on technical foundations",
                         "Building community and partnerships",
@@ -77,7 +92,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Adaptation to Market Changes**: How should Arbitrum DAO adapt to market dynamics?",
+                    title: "**Adaptation to Market Changes**: How should $DAO_NAME DAO adapt to market dynamics?",
                     answers: [
                         "Quickly responding to market dynamics",
                         "Taking measured, well-considered actions",
@@ -85,7 +100,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Economic Model Considerations**: What should Arbitrum DAO’s economic focus be?",
+                    title: "**Economic Model Considerations**: What should $DAO_NAME DAO’s economic focus be?",
                     answers: [
                         "Ensuring long-term viability",
                         "Boosting participation and transaction volume",
@@ -93,7 +108,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Technological Development Focus**: What should Arbitrum DAO’s technological focus be?",
+                    title: "**Technological Development Focus**: What should $DAO_NAME DAO’s technological focus be?",
                     answers: [
                         "Supporting growth and efficiency",
                         "Fortifying against threats and vulnerabilities",
@@ -101,7 +116,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Funding Allocation**: How should Arbitrum DAO’s resources be allocated?",
+                    title: "**Funding Allocation**: How should $DAO_NAME DAO’s resources be allocated?",
                     answers: [
                         "Investing in technology and platform upgrades",
                         "Supporting initiatives and engagement",
@@ -109,7 +124,7 @@ class DelegatorViewModel: ObservableObject {
                     ]
                 ),
                 .init(
-                    title: "**Vision for Arbitrum's Future**: What should Arbitrum DAO DAO aim for?",
+                    title: "**Vision for $DAO_NAME's Future**: What should $DAO_NAME DAO DAO aim for?",
                     answers: [
                         "Aspiring to be a top Layer 2 solution",
                         "Cultivating a strong, supportive ecosystem",

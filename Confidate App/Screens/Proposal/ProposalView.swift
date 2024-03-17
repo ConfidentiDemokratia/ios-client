@@ -52,6 +52,6 @@ struct ProposalView: View {
     }
 }
 
-#Preview {
-    ProposalView(viewModel: .init(proposal: .init(id: "", title: "", description: nil, vote: nil, author: "", ends: .init(), state: .active)))
-}
+//#Preview {
+//    ProposalView(viewModel: .init(proposal: .init(id: "", title: "", description: nil, vote: nil, author: "", ends: .init(), state: .active), blockchainService: .init(daoAddress: "")))
+//}

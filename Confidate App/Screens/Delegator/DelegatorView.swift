@@ -51,40 +51,38 @@ struct DelegatorView: View {
     }
 
     var body: some View {
-//        NavigationStack {
-            List {
-                Text("Setup your delegator for Arbitrum")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.clear)
+        List {
+            Text("Setup your delegator for Arbitrum")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
 
-                sectionView
+            sectionView
 
-                Spacer(minLength: 48)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.clear)
+            Spacer(minLength: 48)
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color.clear)
+        }
+        .overlay(alignment: .bottom) {
+            AsyncButton {
+                try await viewModel.saveUserEmbedding()
+            } label: {
+                Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
             }
-            .overlay(alignment: .bottom) {
-                AsyncButton {
-                    try await viewModel.saveUserEmbedding()
-                } label: {
-                    Label("Apply", systemImage: "checkmark").frame(maxWidth: .infinity)
-                }
-                .disabledWhenLoading()
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .disabled(!viewModel.isAnswersValid)
-                .padding(.bottom, 8)
-                .padding(.horizontal, 14)
-            }
-            
-//        }
+            .disabledWhenLoading()
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .disabled(!viewModel.isAnswersValid)
+            .padding(.bottom, 8)
+            .padding(.horizontal, 14)
+        }
+
     }
 }
 
 #Preview {
-    DelegatorView(viewModel: .init(walletService: .init()))
+    DelegatorView(viewModel: .init(walletService: .init(), daoItem: .init(title: "", description: "", logo: "", space: "")))
 }
 
 struct NoButtonStyle: ButtonStyle {

@@ -19,6 +19,10 @@
 		8551A2692BA5EF5D00CA5FA9 /* DaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */; };
 		8551A26A2BA612E000CA5FA9 /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F811F92BA5BE1200AA07B6 /* Example.xcframework */; };
 		8551A26E2BA61E9800CA5FA9 /* BlockchainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A26D2BA61E9800CA5FA9 /* BlockchainService.swift */; };
+		8551A2702BA6556C00CA5FA9 /* hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A26F2BA6556C00CA5FA9 /* hexString.swift */; };
+		8551A2722BA65AAC00CA5FA9 /* maciABI.json in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2712BA65AAC00CA5FA9 /* maciABI.json */; };
+		8551A2742BA6695500CA5FA9 /* pollABI.json in Resources */ = {isa = PBXBuildFile; fileRef = 8551A2732BA6695500CA5FA9 /* pollABI.json */; };
+		8551A2762BA6829600CA5FA9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2752BA6829600CA5FA9 /* Keys.swift */; };
 		85F811722BA4A16A00AA07B6 /* ConfidateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */; };
 		85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811732BA4A16A00AA07B6 /* ContentView.swift */; };
 		85F811762BA4A16A00AA07B6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F811752BA4A16A00AA07B6 /* Item.swift */; };
@@ -78,6 +82,10 @@
 		8551A2652BA5E3B000CA5FA9 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8551A2682BA5EF5D00CA5FA9 /* DaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaoAuthService.swift; sourceTree = "<group>"; };
 		8551A26D2BA61E9800CA5FA9 /* BlockchainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainService.swift; sourceTree = "<group>"; };
+		8551A26F2BA6556C00CA5FA9 /* hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hexString.swift; sourceTree = "<group>"; };
+		8551A2712BA65AAC00CA5FA9 /* maciABI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maciABI.json; sourceTree = "<group>"; };
+		8551A2732BA6695500CA5FA9 /* pollABI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pollABI.json; sourceTree = "<group>"; };
+		8551A2752BA6829600CA5FA9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		85F8116E2BA4A16A00AA07B6 /* Confidate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Confidate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85F811712BA4A16A00AA07B6 /* ConfidateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfidateApp.swift; sourceTree = "<group>"; };
 		85F811732BA4A16A00AA07B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 		85F811652BA4A16A00AA07B6 = {
 			isa = PBXGroup;
 			children = (
+				8551A2752BA6829600CA5FA9 /* Keys.swift */,
 				8551A25D2BA5E23800CA5FA9 /* BERTEmbedder.mlmodel */,
 				85F811FD2BA5BE2F00AA07B6 /* Lib */,
 				85F811702BA4A16A00AA07B6 /* Confidate App */,
@@ -241,6 +250,7 @@
 				85F811A42BA4BBB400AA07B6 /* DefaultSocketFactory.swift */,
 				85F811CE2BA4FC5800AA07B6 /* SkeletonWrapped.swift */,
 				8551A2652BA5E3B000CA5FA9 /* Utils.swift */,
+				8551A26F2BA6556C00CA5FA9 /* hexString.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -266,6 +276,8 @@
 		85F811AC2BA4C3AE00AA07B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8551A2732BA6695500CA5FA9 /* pollABI.json */,
+				8551A2712BA65AAC00CA5FA9 /* maciABI.json */,
 				8551A2632BA5E2D000CA5FA9 /* vocab.txt */,
 				85F811AD2BA4C3B900AA07B6 /* DaoItem.swift */,
 				85F811B72BA4D89000AA07B6 /* Proposal.swift */,
@@ -457,6 +469,8 @@
 				85F8117B2BA4A16C00AA07B6 /* Preview Assets.xcassets in Resources */,
 				85F811D72BA5214000AA07B6 /* schema.graphqls in Resources */,
 				8551A2642BA5E2D000CA5FA9 /* vocab.txt in Resources */,
+				8551A2742BA6695500CA5FA9 /* pollABI.json in Resources */,
+				8551A2722BA65AAC00CA5FA9 /* maciABI.json in Resources */,
 				85F811782BA4A16C00AA07B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +513,7 @@
 				85F811EF2BA524C700AA07B6 /* ApolloService.swift in Sources */,
 				85F811ED2BA5249E00AA07B6 /* SnapshotSchema.graphql.swift in Sources */,
 				85F811EC2BA5249E00AA07B6 /* SchemaMetadata.graphql.swift in Sources */,
+				8551A2702BA6556C00CA5FA9 /* hexString.swift in Sources */,
 				8551A26E2BA61E9800CA5FA9 /* BlockchainService.swift in Sources */,
 				85F811872BA4A1BF00AA07B6 /* AuthView.swift in Sources */,
 				85F811D22BA518E900AA07B6 /* RootTabView.swift in Sources */,
@@ -522,6 +537,7 @@
 				85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */,
 				85F811762BA4A16A00AA07B6 /* Item.swift in Sources */,
 				85F811B82BA4D89000AA07B6 /* Proposal.swift in Sources */,
+				8551A2762BA6829600CA5FA9 /* Keys.swift in Sources */,
 				8551A25E2BA5E23800CA5FA9 /* BERTEmbedder.mlmodel in Sources */,
 				85F811E62BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift in Sources */,
 				85F811C92BA4E86600AA07B6 /* Delegator.swift in Sources */,

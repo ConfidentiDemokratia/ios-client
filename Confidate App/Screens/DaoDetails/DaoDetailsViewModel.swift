@@ -15,6 +15,8 @@ class DaoDetailsViewModel: ObservableObject {
     @Published var proposals: [Proposal?] = .mock()
     @Published var page: Int? = 0
 
+    let blockchainService: BlockchainService
+
     var isDaoDetailsLoaded: Bool {
         daoDetails != nil
     }
@@ -23,13 +25,13 @@ class DaoDetailsViewModel: ObservableObject {
         proposals != .mock()
     }
 
-    init(daoItem: DaoItem) {
+    init(daoItem: DaoItem, daoAuthService: DaoAuthService) throws {
         self.daoItem = daoItem
+
+        blockchainService = try .init(daoAddress: daoItem.hexAddress, daoAuthService: daoAuthService)
     }
 
     func onAppear() {
-        loadMoreProposals()
-
         loadDaoDetails { daoDetails in
             withAnimation {
                 self.daoDetails = daoDetails
@@ -37,7 +39,14 @@ class DaoDetailsViewModel: ObservableObject {
         }
     }
 
-    func loadMoreProposals() {
+    func onAuthorize() {
+        loadMoreProposals { [weak self] in
+            guard let self, isProposalsLoaded else { return }
+            getProposalVote(proposals[0]!)
+        }
+    }
+
+    func loadMoreProposals(completion: (() -> Void)? = nil) {
         loadProposals { proposals in
             withAnimation { [weak self] in
                 guard let self else { return }
@@ -46,6 +55,8 @@ class DaoDetailsViewModel: ObservableObject {
                 } else {
                     self.proposals = proposals
                 }
+            } completion: {
+                completion?()
             }
         }
     }
@@ -58,7 +69,7 @@ class DaoDetailsViewModel: ObservableObject {
 
     func getProposalVote(_ proposal: Proposal) {
         guard let proposalIndex = proposals.firstIndex(of: proposal) else { return }
-        BlockchainService.shared.getProposalVote(proposal: proposal) { vote in
+        blockchainService.getProposalVote(proposal: proposal) { vote in
             withAnimation { [weak self] in
                 self?.proposals[proposalIndex]?.vote = vote
             }

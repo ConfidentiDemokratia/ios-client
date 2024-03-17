@@ -375,10 +375,10 @@ public func encrypt(prk: Data, pbk: Data, message: Data) -> Data {
     )
 }
 
-public func extGeneratePubkey(signedBytes: Data) -> Data {
+public func extGenerateKeys(signedBytes: Data) -> Data {
     return try! FfiConverterData.lift(
         try! rustCall {
-            uniffi_example_fn_func_ext_generate_pubkey(
+            uniffi_example_fn_func_ext_generate_keys(
                 FfiConverterData.lower(signedBytes), $0
             )
         }
@@ -418,7 +418,7 @@ private var initializationResult: InitializationResult {
     if uniffi_example_checksum_func_encrypt() != 60257 {
         return InitializationResult.apiChecksumMismatch
     }
-    if uniffi_example_checksum_func_ext_generate_pubkey() != 15164 {
+    if uniffi_example_checksum_func_ext_generate_keys() != 44727 {
         return InitializationResult.apiChecksumMismatch
     }
     if uniffi_example_checksum_func_ext_sign_pubkey() != 33525 {

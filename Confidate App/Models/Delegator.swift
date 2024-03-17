@@ -9,8 +9,8 @@ import Foundation
 
 struct DelegatorQuestion: Identifiable, Hashable {
     var id = UUID()
-    let title: String
-    let answers: [String]
+    var title: String
+    var answers: [String]
     var answerIndex: Int?
 
     var pickedAnswer: String? {

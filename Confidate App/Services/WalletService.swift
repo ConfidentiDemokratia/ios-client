@@ -122,4 +122,36 @@ class WalletService: ObservableObject {
 
         Web3Modal.instance.logger.setLogging(level: .debug)
     }
+
+    enum SignError: Error {
+        case noAddress
+        case noString
+    }
+
+    func requestWalletSign(message: String) async throws -> Data {
+        guard let address = Web3Modal.instance.getAddress() else { throw SignError.noAddress }
+
+        try await Web3Modal.instance.request(.personal_sign(address: address, message: message))
+
+        var cancellable: AnyCancellable?
+        
+        defer {
+            if let cancellable {
+                disposeBag.remove(cancellable)
+            }
+        }
+
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Data, any Error>) in
+            cancellable = Web3Modal.instance.sessionResponsePublisher
+                .receive(on: DispatchQueue.main)
+                .sink { response in
+                    guard let string = try? response.asJSONEncodedString() else {
+                        continuation.resume(throwing: SignError.noString)
+                        return
+                    }
+                    continuation.resume(returning: String(string.dropFirst(2)).hexData)
+                }
+            cancellable?.store(in: &disposeBag)
+        }
+    }
 }

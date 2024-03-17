@@ -23,8 +23,11 @@ class ProposalViewModel: ObservableObject {
 
     @Published var highlightedVote: ProposalVote?
 
-    init(proposal: Proposal) {
+    let blockchainService: BlockchainService
+
+    init(proposal: Proposal, blockchainService: BlockchainService) {
         self.proposal = proposal
+        self.blockchainService = blockchainService
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation { [weak self] in
@@ -38,7 +41,7 @@ class ProposalViewModel: ObservableObject {
         withAnimation {
             canVote = false
         }
-        BlockchainService.shared.setProposalVote(proposal: proposal) {
+        blockchainService.setProposalVote(proposal: proposal) {
             withAnimation {
                 self.canVote = true
             }

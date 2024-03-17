@@ -13,4 +13,5 @@ struct DaoItem: Identifiable, Hashable {
     let description: String
     let logo: String
     let space: String
+    let hexAddress: String = daoHexAddress // TODO: update hexAddress
 }

@@ -28,20 +28,25 @@ struct RootTabView: View {
 
     @State var selection: Tab = .proposals
 
+    let daoAuthService: DaoAuthService
+
     var body: some View {
         TabView(selection: $selection) {
-            DaoDetailsView(
-                viewModel: .init(
-                    daoItem: daoItem
-                ),
-                daoAuthService: DaoAuthService()
-            )
-            .tabItem {
-                Label("Proposals", systemImage: "list.dash") // questionmark.bubble
+            if let viewModel = try? DaoDetailsViewModel(
+                daoItem: daoItem,
+                daoAuthService: daoAuthService
+            ) {
+                DaoDetailsView(
+                    viewModel: viewModel,
+                    daoAuthService: daoAuthService
+                )
+                .tabItem {
+                    Label("Proposals", systemImage: "list.dash") // questionmark.bubble
+                }
+                .tag(Tab.proposals)
             }
-            .tag(Tab.proposals)
 
-            DelegatorView(viewModel: .init(walletService: walletService))
+            DelegatorView(viewModel: .init(walletService: walletService, daoItem: daoItem))
                 .tabItem {
                     Label("Delegator", systemImage: "person.icloud")
                 }

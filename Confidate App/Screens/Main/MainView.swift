@@ -48,7 +48,7 @@ struct MainView: View {
             content
                 .navigationTitle("Hello, \(walletService.shortToken ?? "user")!")
                 .navigationDestination(for: DaoItem.self) { daoItem in
-                    RootTabView(daoItem: daoItem)
+                    RootTabView(daoItem: daoItem, daoAuthService: .init(walletService: walletService))
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
