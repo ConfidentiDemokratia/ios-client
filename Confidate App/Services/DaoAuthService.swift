@@ -13,6 +13,7 @@ class DaoAuthService: ObservableObject {
     var isAuthorized: Bool = false
 
     let walletService: WalletService
+    
 
     var privateKey: Data?
     var publicKey: Data?
@@ -32,6 +33,8 @@ class DaoAuthService: ObservableObject {
         }
         privateKey = mergedKey.prefix(32)
         publicKey = mergedKey.suffix(64)
+
+        
 
         withAnimation {
             self.isAuthorized = true
