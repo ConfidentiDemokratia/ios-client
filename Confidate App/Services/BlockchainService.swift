@@ -212,4 +212,139 @@ class BlockchainService {
             print(error)
         }
     }
+    
+    func uploadDelegator(_ delegatorHash: Data) {
+        do {
+            // Initialize the DynamicContract with the ABI and address
+            let contract = try getContract(contractAddress: daoAddress, name: "maciABI")
+
+            guard let createProfileMethod = contract["addDelegator"] else {
+                fatalError("Failed to get the method for the sign up")
+            }
+
+            
+            let signature = [BigUInt(delegatorHash.prefix(32)), BigUInt(delegatorHash.prefix(32)), BigUInt(delegatorHash.prefix(32))]
+            let delegatorEmbeddingHash = BigUInt(delegatorHash.prefix(32))
+            
+            let invocation = createProfileMethod(delegatorEmbeddingHash, signature)
+
+            firstly {
+                Self.web3.eth.gasPrice()
+            }.then { gasPrice -> Promise<(EthereumQuantity, EthereumQuantity)> in
+                print("Current gas price: \(gasPrice.quantity)")
+                let noncePromise = Self.web3.eth.getTransactionCount(address: Self.wallletPrivateKey.address, block: .latest)
+                return noncePromise.map { nonce in (nonce, gasPrice) }
+            }
+            .then { (nonce, gasPrice) -> Promise<(EthereumQuantity, EthereumQuantity, EthereumQuantity)> in
+//                print("Calculating gas cost: from - \(Self.wallletPrivateKey.privateKey.address)")
+                print("Suggested gas price: \(gasPrice)")
+                let gasPrice = EthereumQuantity(quantity: 10.gwei)
+                print("Instead used gas price: \(gasPrice)")
+
+                let gasLimitPromise = invocation.estimateGas(from: Self.wallletPrivateKey.address, gas: 0, value: EthereumQuantity(quantity: 0))
+                return gasLimitPromise.map { gasLimit in (gasLimit, nonce, gasPrice) }
+
+            }
+            .then { (gasLimit, nonce, gasPrice) -> Promise<EthereumSignedTransaction> in
+
+
+
+                print("Gas Limit: \(gasLimit)")
+                print("Tx generating...")
+
+
+                guard let transaction = invocation.createTransaction(nonce: nonce, gasPrice: gasPrice, maxFeePerGas: nil, maxPriorityFeePerGas: nil, gasLimit: gasLimit, from: Self.wallletPrivateKey.address, value: EthereumQuantity(quantity: 0), accessList: [:], transactionType: .legacy) else {
+                    fatalError("Failed to create TX")
+
+                }
+                let visualTx = try transaction.json()
+                print("TX To Show:")
+                print(visualTx)
+
+
+                return try transaction.sign(with: Self.wallletPrivateKey, chainId: Self.chainId).promise
+            }.then { signedTx -> Promise<EthereumData> in
+                print("Sending TX")
+                return Self.web3.eth.sendRawTransaction(transaction: signedTx)
+            }.done { hash in
+                print("TX Sent:")
+                print(hash)
+            }.catch { error in
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func uploadMessage(_ message: Data, _ publicKey: Data) {
+        do {
+            // Initialize the DynamicContract with the ABI and address
+            let contract = try getContract(contractAddress: daoAddress, name: "pollABI")
+
+            guard let createProfileMethod = contract["publishMessage"] else {
+                fatalError("Failed to get the method for the sign up")
+            }
+
+            let publicKeyS = SolidityTuple([
+                .init(value: BigUInt(publicKey.prefix(32)), type: .uint256),
+                .init(value: BigUInt(publicKey.suffix(32)), type: .uint256),
+            ])
+            
+            let message = SolidityTuple([
+                .init(value: BigUInt(message.prefix(32)), type: .uint256),
+                .init(value: BigUInt(message.suffix(32)), type: .uint256), // TODO: use correct type here
+            ])
+            let invocation = createProfileMethod(message, publicKeyS)
+
+            firstly {
+                Self.web3.eth.gasPrice()
+            }.then { gasPrice -> Promise<(EthereumQuantity, EthereumQuantity)> in
+                print("Current gas price: \(gasPrice.quantity)")
+                let noncePromise = Self.web3.eth.getTransactionCount(address: Self.wallletPrivateKey.address, block: .latest)
+                return noncePromise.map { nonce in (nonce, gasPrice) }
+            }
+            .then { (nonce, gasPrice) -> Promise<(EthereumQuantity, EthereumQuantity, EthereumQuantity)> in
+//                print("Calculating gas cost: from - \(Self.wallletPrivateKey.privateKey.address)")
+                print("Suggested gas price: \(gasPrice)")
+                let gasPrice = EthereumQuantity(quantity: 10.gwei)
+                print("Instead used gas price: \(gasPrice)")
+
+                let gasLimitPromise = invocation.estimateGas(from: Self.wallletPrivateKey.address, gas: 0, value: EthereumQuantity(quantity: 0))
+                return gasLimitPromise.map { gasLimit in (gasLimit, nonce, gasPrice) }
+
+            }
+            .then { (gasLimit, nonce, gasPrice) -> Promise<EthereumSignedTransaction> in
+
+
+
+                print("Gas Limit: \(gasLimit)")
+                print("Tx generating...")
+
+
+                guard let transaction = invocation.createTransaction(nonce: nonce, gasPrice: gasPrice, maxFeePerGas: nil, maxPriorityFeePerGas: nil, gasLimit: gasLimit, from: Self.wallletPrivateKey.address, value: EthereumQuantity(quantity: 0), accessList: [:], transactionType: .legacy) else {
+                    fatalError("Failed to create TX")
+
+                }
+                let visualTx = try transaction.json()
+                print("TX To Show:")
+                print(visualTx)
+
+
+                return try transaction.sign(with: Self.wallletPrivateKey, chainId: Self.chainId).promise
+            }.then { signedTx -> Promise<EthereumData> in
+                print("Sending TX")
+                return Self.web3.eth.sendRawTransaction(transaction: signedTx)
+            }.done { hash in
+                print("TX Sent:")
+                print(hash)
+            }.catch { error in
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    
 }
