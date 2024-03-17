@@ -40,10 +40,7 @@ class DaoDetailsViewModel: ObservableObject {
     }
 
     func onAuthorize() {
-        loadMoreProposals { [weak self] in
-            guard let self, isProposalsLoaded else { return }
-            getProposalVote(proposals[0]!)
-        }
+        loadMoreProposals()
     }
 
     func loadMoreProposals(completion: (() -> Void)? = nil) {
@@ -64,15 +61,6 @@ class DaoDetailsViewModel: ObservableObject {
     func loadDaoDetails(completion: @escaping (DaoDetails) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             completion(.init(title: self.daoItem.title, description: self.daoItem.description, space: ""))
-        }
-    }
-
-    func getProposalVote(_ proposal: Proposal) {
-        guard let proposalIndex = proposals.firstIndex(of: proposal) else { return }
-        blockchainService.getProposalVote(proposal: proposal) { vote in
-            withAnimation { [weak self] in
-                self?.proposals[proposalIndex]?.vote = vote
-            }
         }
     }
 

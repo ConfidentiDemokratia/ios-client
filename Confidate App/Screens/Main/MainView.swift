@@ -37,9 +37,10 @@ struct MainView: View {
                     }
                     .skeletonCell(with: !viewModel.isDaoDetailsListLoaded)
                 }
-            } header: {
-                Text("DAO's").skeleton(with: !viewModel.isDaoDetailsListLoaded)
-            }
+            } 
+//        header: {
+//                Text("DAO's").skeleton(with: !viewModel.isDaoDetailsListLoaded)
+//            }
         }
     }
 

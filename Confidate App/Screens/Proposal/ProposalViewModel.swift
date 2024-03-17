@@ -35,6 +35,16 @@ class ProposalViewModel: ObservableObject {
                 self?.highlightedVote = .yes
             }
         }
+
+        getProposalVote(proposal)
+    }
+
+    func getProposalVote(_ proposal: Proposal) {
+        blockchainService.getProposalVote(proposal: proposal) { vote in
+            withAnimation { [weak self] in
+                self?.proposal.vote = vote
+            }
+        }
     }
 
     func sendSelection(completion: @escaping () -> Void) {
