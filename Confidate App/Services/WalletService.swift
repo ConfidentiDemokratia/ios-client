@@ -68,7 +68,7 @@ class WalletService: ObservableObject {
         )
 
         Networking.configure(
-            groupIdentifier: "group.com.walletconnect.web3modal",
+            groupIdentifier: "group.confidenti",
             projectId: projectId,
             socketFactory: DefaultSocketFactory()
         )

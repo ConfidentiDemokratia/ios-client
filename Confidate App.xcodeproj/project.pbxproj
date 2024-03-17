@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60E2D2432BA6C553008C953A /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E2D2422BA6C553008C953A /* Example.xcframework */; };
-		60E2D2472BA6C79F008C953A /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E2D2462BA6C79F008C953A /* Keys.swift */; };
+		60BC85822BA6D48100513CE2 /* Example.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E2D2422BA6C553008C953A /* Example.xcframework */; };
+		60BC85862BA6D49800513CE2 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BC85852BA6D49800513CE2 /* Keys.swift */; };
 		8551A24E2BA5C62100CA5FA9 /* ExampleLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A24D2BA5C62100CA5FA9 /* ExampleLib.swift */; };
 		8551A2562BA5DA8A00CA5FA9 /* DelegatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2552BA5DA8A00CA5FA9 /* DelegatorService.swift */; };
 		8551A2592BA5DE7200CA5FA9 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551A2582BA5DE7200CA5FA9 /* AsyncButton.swift */; };
@@ -72,8 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60BC85852BA6D49800513CE2 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		60E2D2422BA6C553008C953A /* Example.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Example.xcframework; path = "../maci-crypto-rust/Example.xcframework"; sourceTree = "<group>"; };
-		60E2D2462BA6C79F008C953A /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		8551A24D2BA5C62100CA5FA9 /* ExampleLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleLib.swift; sourceTree = "<group>"; };
 		8551A2552BA5DA8A00CA5FA9 /* DelegatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatorService.swift; sourceTree = "<group>"; };
 		8551A2582BA5DE7200CA5FA9 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				85F811F72BA5AE5F00AA07B6 /* MarkdownUI in Frameworks */,
 				85F811922BA4A49D00AA07B6 /* Starscream in Frameworks */,
 				85F811C12BA4E03100AA07B6 /* SkeletonUI in Frameworks */,
-				60E2D2432BA6C553008C953A /* Example.xcframework in Frameworks */,
+				60BC85822BA6D48100513CE2 /* Example.xcframework in Frameworks */,
 				8551A25C2BA5DF6E00CA5FA9 /* ButtonKit in Frameworks */,
 				85F811D52BA5202500AA07B6 /* Apollo in Frameworks */,
 				85F811992BA4A4CE00AA07B6 /* Web3PromiseKit in Frameworks */,
@@ -162,7 +162,7 @@
 		85F811652BA4A16A00AA07B6 = {
 			isa = PBXGroup;
 			children = (
-				60E2D2462BA6C79F008C953A /* Keys.swift */,
+				60BC85852BA6D49800513CE2 /* Keys.swift */,
 				8551A25D2BA5E23800CA5FA9 /* BERTEmbedder.mlmodel */,
 				85F811FD2BA5BE2F00AA07B6 /* Lib */,
 				85F811702BA4A16A00AA07B6 /* Confidate App */,
@@ -540,7 +540,7 @@
 				85F811742BA4A16A00AA07B6 /* ContentView.swift in Sources */,
 				85F811762BA4A16A00AA07B6 /* Item.swift in Sources */,
 				85F811B82BA4D89000AA07B6 /* Proposal.swift in Sources */,
-				60E2D2472BA6C79F008C953A /* Keys.swift in Sources */,
+				60BC85862BA6D49800513CE2 /* Keys.swift in Sources */,
 				8551A25E2BA5E23800CA5FA9 /* BERTEmbedder.mlmodel in Sources */,
 				85F811E62BA5249E00AA07B6 /* GetProposalsQuery.graphql.swift in Sources */,
 				85F811C92BA4E86600AA07B6 /* Delegator.swift in Sources */,
@@ -609,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -666,7 +666,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -685,7 +685,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Confidate App/Preview Content\"";
-				DEVELOPMENT_TEAM = WAX2V9LJG6;
+				DEVELOPMENT_TEAM = LMRM26A744;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -700,11 +700,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.confidate.Confidate-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.confidatet.Confidate-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -721,7 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Confidate App/Preview Content\"";
-				DEVELOPMENT_TEAM = WAX2V9LJG6;
+				DEVELOPMENT_TEAM = LMRM26A744;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -736,11 +736,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.confidate.Confidate-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.confidatet.Confidate-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
